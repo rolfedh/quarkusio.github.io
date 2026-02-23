@@ -111,85 +111,93 @@ domains:
     title: Migrating to Quarkus REST (formerly RESTEasy Reactive)
     type: guide
     nav-title: Migrate to Quarkus REST
-  - url: /guides/smallrye-graphql
-    title: SmallRye GraphQL
-    type: guide
-    nav-title: Use SmallRye GraphQL
-  - url: /guides/smallrye-graphql-client
-    title: SmallRye GraphQL Client
-    type: guide
-    nav-title: Use the GraphQL client
-  - url: /guides/grpc
-    title: gRPC
-    type: guide
-    nav-title: Use gRPC
-  - url: /guides/grpc-getting-started
-    title: Getting Started with gRPC
-    type: guide
-    nav-title: Get started with gRPC
-  - url: /guides/grpc-service-implementation
-    title: Implementing a gRPC Service
-    type: guide
-    nav-title: Implement a gRPC service
-  - url: /guides/grpc-service-consumption
-    title: Consuming a gRPC Service
-    type: guide
-    nav-title: Consume a gRPC service
-  - url: /guides/grpc-kubernetes
-    title: Deploying your gRPC Service in Kubernetes
-    type: guide
-    nav-title: Deploy gRPC to Kubernetes
-  - url: /guides/grpc-virtual-threads
-    title: Quarkus Virtual Thread support for gRPC services
-    type: guide
-    nav-title: Use virtual threads with gRPC
-  - url: /guides/grpc-cli
-    title: Using gRPC CLI
-    type: guide
-    nav-title: Use the gRPC CLI
-  - url: /guides/grpc-xds
-    title: Using xDS gRPC
-    type: guide
-    nav-title: Use xDS gRPC
-  - url: /guides/http-reference
-    title: HTTP Reference
-    type: reference
-    nav-title: HTTP reference
-  - url: /guides/tls-registry-reference
-    title: TLS registry reference
-    type: reference
-  - url: /guides/security-cors
-    title: Cross-Origin Resource Sharing (CORS)
-    type: reference
-    nav-title: CORS reference
-  - url: /guides/load-shedding-reference
-    title: Load Shedding reference guide
-    type: reference
-    nav-title: Load shedding reference
-  - url: /guides/grpc-reference
-    title: gRPC reference guide
-    type: reference
-    nav-title: gRPC reference
-  - url: /guides/grpc-generation-reference
-    title: gRPC code generation reference guide
-    type: reference
-    nav-title: gRPC code generation reference
-  - url: /guides/resteasy
-    title: RESTEasy Classic
-    type: guide
-    nav-title: Use RESTEasy Classic
-  - url: /guides/resteasy-client
-    title: Using the legacy REST Client
-    type: guide
-    nav-title: Use the legacy REST client
-  - url: /guides/resteasy-client-multipart
-    title: Using the legacy REST Client with Multipart
-    type: guide
-    nav-title: Use the legacy REST client with multipart
-  - url: /guides/web-dependency-locator
-    title: Web dependency locator
-    type: guide
-    nav-title: Use the web dependency locator
+  - subcategory: GraphQL
+    guides:
+    - url: /guides/smallrye-graphql
+      title: SmallRye GraphQL
+      type: guide
+      nav-title: Use SmallRye GraphQL
+    - url: /guides/smallrye-graphql-client
+      title: SmallRye GraphQL Client
+      type: guide
+      nav-title: Use the GraphQL client
+  - subcategory: gRPC
+    guides:
+    - url: /guides/grpc
+      title: gRPC
+      type: guide
+      nav-title: Use gRPC
+    - url: /guides/grpc-getting-started
+      title: Getting Started with gRPC
+      type: guide
+      nav-title: Get started with gRPC
+    - url: /guides/grpc-service-implementation
+      title: Implementing a gRPC Service
+      type: guide
+      nav-title: Implement a gRPC service
+    - url: /guides/grpc-service-consumption
+      title: Consuming a gRPC Service
+      type: guide
+      nav-title: Consume a gRPC service
+    - url: /guides/grpc-kubernetes
+      title: Deploying your gRPC Service in Kubernetes
+      type: guide
+      nav-title: Deploy gRPC to Kubernetes
+    - url: /guides/grpc-virtual-threads
+      title: Quarkus Virtual Thread support for gRPC services
+      type: guide
+      nav-title: Use virtual threads with gRPC
+    - url: /guides/grpc-cli
+      title: Using gRPC CLI
+      type: guide
+      nav-title: Use the gRPC CLI
+    - url: /guides/grpc-xds
+      title: Using xDS gRPC
+      type: guide
+      nav-title: Use xDS gRPC
+    - url: /guides/grpc-reference
+      title: gRPC reference guide
+      type: reference
+      nav-title: gRPC reference
+    - url: /guides/grpc-generation-reference
+      title: gRPC code generation reference guide
+      type: reference
+      nav-title: gRPC code generation reference
+  - subcategory: HTTP & networking
+    guides:
+    - url: /guides/http-reference
+      title: HTTP Reference
+      type: reference
+      nav-title: HTTP reference
+    - url: /guides/tls-registry-reference
+      title: TLS registry reference
+      type: reference
+    - url: /guides/security-cors
+      title: Cross-Origin Resource Sharing (CORS)
+      type: reference
+      nav-title: CORS reference
+    - url: /guides/load-shedding-reference
+      title: Load Shedding reference guide
+      type: reference
+      nav-title: Load shedding reference
+  - subcategory: Legacy REST (RESTEasy Classic)
+    guides:
+    - url: /guides/resteasy
+      title: RESTEasy Classic
+      type: guide
+      nav-title: Use RESTEasy Classic
+    - url: /guides/resteasy-client
+      title: Using the legacy REST Client
+      type: guide
+      nav-title: Use the legacy REST client
+    - url: /guides/resteasy-client-multipart
+      title: Using the legacy REST Client with Multipart
+      type: guide
+      nav-title: Use the legacy REST client with multipart
+    - url: /guides/web-dependency-locator
+      title: Web dependency locator
+      type: guide
+      nav-title: Use the web dependency locator
 - id: build-web-uis
   title: Build Web UIs
   job: Build full-stack web applications with server-side templates and real-time WebSocket connections.
@@ -248,18 +256,6 @@ domains:
     title: Simplified Hibernate with Panache Next
     type: guide
     nav-title: Use Hibernate Panache Next
-  - url: /guides/mongodb-panache
-    title: Simplified MongoDB with Panache
-    type: guide
-    nav-title: Use MongoDB with Panache
-  - url: /guides/mongodb-panache-kotlin
-    title: Simplified MongoDB with Panache and Kotlin
-    type: guide
-    nav-title: Use MongoDB Panache with Kotlin
-  - url: /guides/mongodb
-    title: Using the MongoDB Client
-    type: guide
-    nav-title: Use the MongoDB client
   - url: /guides/hibernate-reactive
     title: Using Hibernate Reactive
     type: guide
@@ -268,97 +264,123 @@ domains:
     title: Reactive SQL Clients
     type: guide
     nav-title: Use reactive SQL clients
-  - url: /guides/flyway
-    title: Using Flyway
-    type: guide
-    nav-title: Use Flyway
-  - url: /guides/liquibase
-    title: Using Liquibase
-    type: guide
-    nav-title: Use Liquibase
-  - url: /guides/liquibase-mongodb
-    title: Using Liquibase MongoDB
-    type: guide
-    nav-title: Use Liquibase MongoDB
-  - url: /guides/transaction
-    title: Using transactions in Quarkus
-    type: reference
-    nav-title: Transaction reference
-  - url: /guides/cache
-    title: Application Data Caching
-    type: guide
-    nav-title: Cache application data
-  - url: /guides/cache-infinispan-reference
-    title: Infinispan Cache
-    type: reference
-    nav-title: Infinispan cache reference
-  - url: /guides/cache-redis-reference
-    title: Redis Cache
-    type: reference
-    nav-title: Redis cache reference
-  - url: /guides/redis
-    title: Using the Redis Client
-    type: guide
-    nav-title: Use the Redis client
-  - url: /guides/redis-reference
-    title: Redis Extension Reference Guide
-    type: reference
-    nav-title: Redis reference
-  - url: /guides/infinispan-client
-    title: Using the Infinispan Client
-    type: guide
-    nav-title: Use the Infinispan client
-  - url: /guides/infinispan-client-reference
-    title: Infinispan Client Extension Reference Guide
-    type: reference
-    nav-title: Infinispan client reference
-  - url: /guides/elasticsearch
-    title: Connecting to an Elasticsearch cluster
-    type: guide
-    nav-title: Connect to Elasticsearch
-  - url: /guides/hibernate-search-orm-elasticsearch
-    title: Use Hibernate Search with Hibernate ORM and Elasticsearch/OpenSearch
-    type: guide
-    nav-title: Use Hibernate Search with ORM
-  - url: /guides/hibernate-search-standalone-elasticsearch
-    title: Use Hibernate Search in Standalone mode with Elasticsearch/OpenSearch
-    type: guide
-    nav-title: Use Hibernate Search standalone
-  - url: /guides/cassandra
-    title: Using the Cassandra Client
-    type: guide
-    nav-title: Use the Cassandra client
-  - url: /guides/blaze-persistence
-    title: Using Blaze-Persistence
-    type: guide
-    nav-title: Use Blaze-Persistence
-  - url: /guides/lra
-    title: Narayana LRA Participant Support
-    type: guide
-    nav-title: Use Narayana LRA
-  - url: /guides/software-transactional-memory
-    title: Using Software Transactional Memory in Quarkus
-    type: guide
-    nav-title: Use software transactional memory
-  - url: /guides/databases-dev-services
-    title: Dev Services for Databases
-    type: guide
-    nav-title: Dev Services for databases
-  - url: /guides/elasticsearch-dev-services
-    title: Dev Services for Elasticsearch
-    type: guide
-  - url: /guides/infinispan-dev-services
-    title: Dev Services for Infinispan
-    type: guide
-  - url: /guides/lra-dev-services
-    title: Dev Services for LRA
-    type: guide
-  - url: /guides/mongodb-dev-services
-    title: Dev Services for MongoDB
-    type: guide
-  - url: /guides/redis-dev-services
-    title: Dev Services for Redis
-    type: guide
+  - subcategory: Schema migration
+    guides:
+    - url: /guides/flyway
+      title: Using Flyway
+      type: guide
+      nav-title: Use Flyway
+    - url: /guides/liquibase
+      title: Using Liquibase
+      type: guide
+      nav-title: Use Liquibase
+    - url: /guides/liquibase-mongodb
+      title: Using Liquibase MongoDB
+      type: guide
+      nav-title: Use Liquibase MongoDB
+  - subcategory: MongoDB
+    guides:
+    - url: /guides/mongodb-panache
+      title: Simplified MongoDB with Panache
+      type: guide
+      nav-title: Use MongoDB with Panache
+    - url: /guides/mongodb-panache-kotlin
+      title: Simplified MongoDB with Panache and Kotlin
+      type: guide
+      nav-title: Use MongoDB Panache with Kotlin
+    - url: /guides/mongodb
+      title: Using the MongoDB Client
+      type: guide
+      nav-title: Use the MongoDB client
+    - url: /guides/mongodb-dev-services
+      title: Dev Services for MongoDB
+      type: guide
+  - subcategory: Redis
+    guides:
+    - url: /guides/cache-redis-reference
+      title: Redis Cache
+      type: reference
+      nav-title: Redis cache reference
+    - url: /guides/redis
+      title: Using the Redis Client
+      type: guide
+      nav-title: Use the Redis client
+    - url: /guides/redis-reference
+      title: Redis Extension Reference Guide
+      type: reference
+      nav-title: Redis reference
+    - url: /guides/redis-dev-services
+      title: Dev Services for Redis
+      type: guide
+  - subcategory: Caching
+    guides:
+    - url: /guides/cache
+      title: Application Data Caching
+      type: guide
+      nav-title: Cache application data
+    - url: /guides/cache-infinispan-reference
+      title: Infinispan Cache
+      type: reference
+      nav-title: Infinispan cache reference
+  - subcategory: Search
+    guides:
+    - url: /guides/elasticsearch
+      title: Connecting to an Elasticsearch cluster
+      type: guide
+      nav-title: Connect to Elasticsearch
+    - url: /guides/hibernate-search-orm-elasticsearch
+      title: Use Hibernate Search with Hibernate ORM and Elasticsearch/OpenSearch
+      type: guide
+      nav-title: Use Hibernate Search with ORM
+    - url: /guides/hibernate-search-standalone-elasticsearch
+      title: Use Hibernate Search in Standalone mode with Elasticsearch/OpenSearch
+      type: guide
+      nav-title: Use Hibernate Search standalone
+    - url: /guides/elasticsearch-dev-services
+      title: Dev Services for Elasticsearch
+      type: guide
+  - subcategory: Other data stores
+    guides:
+    - url: /guides/infinispan-client
+      title: Using the Infinispan Client
+      type: guide
+      nav-title: Use the Infinispan client
+    - url: /guides/infinispan-client-reference
+      title: Infinispan Client Extension Reference Guide
+      type: reference
+      nav-title: Infinispan client reference
+    - url: /guides/cassandra
+      title: Using the Cassandra Client
+      type: guide
+      nav-title: Use the Cassandra client
+    - url: /guides/infinispan-dev-services
+      title: Dev Services for Infinispan
+      type: guide
+  - subcategory: Transactions & STM
+    guides:
+    - url: /guides/transaction
+      title: Using transactions in Quarkus
+      type: reference
+      nav-title: Transaction reference
+    - url: /guides/blaze-persistence
+      title: Using Blaze-Persistence
+      type: guide
+      nav-title: Use Blaze-Persistence
+    - url: /guides/lra
+      title: Narayana LRA Participant Support
+      type: guide
+      nav-title: Use Narayana LRA
+    - url: /guides/software-transactional-memory
+      title: Using Software Transactional Memory in Quarkus
+      type: guide
+      nav-title: Use software transactional memory
+    - url: /guides/databases-dev-services
+      title: Dev Services for Databases
+      type: guide
+      nav-title: Dev Services for databases
+    - url: /guides/lra-dev-services
+      title: Dev Services for LRA
+      type: guide
 - id: secure-your-application
   title: Secure Your Application
   job: Add authentication, configure authorization, and protect endpoints with OIDC, JWT, or WebAuthn.
@@ -392,137 +414,147 @@ domains:
     title: Security vulnerability detection and reporting in Quarkus
     type: concepts
     nav-title: Understand vulnerability detection
-  - url: /guides/security-getting-started-tutorial
-    title: Getting started with security by using Basic authentication and Jakarta Persistence
-    type: tutorial
-    nav-title: Get started with Basic auth and JPA
-  - url: /guides/security-oidc-bearer-token-authentication-tutorial
-    title: Protect a service application by using OpenID Connect (OIDC) Bearer token authentication
-    type: tutorial
-    nav-title: Protect a service with OIDC bearer tokens
-  - url: /guides/security-oidc-code-flow-authentication-tutorial
-    title: Protect a web application by using OpenID Connect (OIDC) authorization code flow
-    type: tutorial
-    nav-title: Protect a web app with OIDC code flow
-  - url: /guides/security-oidc-auth0-tutorial
-    title: Protect a Quarkus web application by using an Auth0 OpenID Connect provider
-    type: tutorial
-    nav-title: Protect a web app with Auth0
-  - url: /guides/security-openid-connect-client
-    title: OpenID Connect client and token propagation quickstart
-    type: tutorial
-    nav-title: Get started with OIDC client
-  - url: /guides/security-vertx-oidc-to-quarkus-oidc-migration
-    title: Migrate from Vert.x OIDC to Quarkus OIDC
-    type: tutorial
-    nav-title: Migrate from Vert.x OIDC
-  - url: /guides/security-oidc-bearer-token-authentication
-    title: OpenID Connect (OIDC) Bearer token authentication
-    type: concepts
-    nav-title: Understand OIDC bearer authentication
-  - url: /guides/security-oidc-code-flow-authentication
-    title: OpenID Connect authorization code flow mechanism for protecting web applications
-    type: concepts
-    nav-title: Understand OIDC code flow
-  - url: /guides/security-openid-connect-providers
-    title: Configuring Well-Known OpenID Connect Providers
-    type: concepts
-    nav-title: Understand OIDC providers
-  - url: /guides/security-oidc-expanded-configuration
-    title: Quarkus OpenId Connect (OIDC) Expanded Configuration Reference
-    type: concepts
-    nav-title: OIDC expanded configuration
-  - url: /guides/security-basic-authentication-howto
-    title: Enable Basic authentication
-    type: howto
-  - url: /guides/security-jpa
-    title: Quarkus Security with Jakarta Persistence
-    type: howto
-    nav-title: Set up security with JPA
-  - url: /guides/security-keycloak-authorization
-    title: Using OpenID Connect (OIDC) and Keycloak to centralize authorization
-    type: howto
-    nav-title: Centralize authorization with Keycloak
-  - url: /guides/security-openid-connect-multitenancy
-    title: Using OpenID Connect (OIDC) multitenancy
-    type: howto
-    nav-title: Configure OIDC multitenancy
-  - url: /guides/security-openid-connect-dev-services
-    title: Dev Services and Dev UI for OpenID Connect (OIDC)
-    type: howto
-    nav-title: Use OIDC Dev Services
-  - url: /guides/security-authorize-web-endpoints-reference
-    title: Authorization of web endpoints
-    type: reference
-    nav-title: Web endpoint authorization reference
-  - url: /guides/security-oidc-configuration-properties-reference
-    title: OpenID Connect (OIDC) configuration properties
-    type: reference
-    nav-title: OIDC configuration properties
-  - url: /guides/security-openid-connect-client-reference
-    title: OpenID Connect (OIDC) and OAuth2 client and filters
-    type: reference
-    nav-title: OIDC and OAuth2 client reference
-  - url: /guides/security-openid-connect-client-registration
-    title: OpenID Connect (OIDC) and OAuth2 dynamic client registration
-    type: reference
-    nav-title: OIDC dynamic client registration
-  - url: /guides/security-jwt
-    title: Using JWT RBAC
-    type: guide
-    nav-title: Use JWT RBAC
-  - url: /guides/security-jwt-build
-    title: Build, sign, and encrypt JSON Web Tokens
-    type: guide
-    nav-title: Build, sign, and encrypt JWTs
-  - url: /guides/security-oauth2
-    title: Using OAuth2 RBAC
-    type: guide
-    nav-title: Use OAuth2 RBAC
-  - url: /guides/security-jdbc
-    title: Using Security with JDBC
-    type: guide
-    nav-title: Use security with JDBC
-  - url: /guides/security-ldap
-    title: Using Security with an LDAP Realm
-    type: guide
-    nav-title: Use security with LDAP
-  - url: /guides/security-webauthn
-    title: Using Security with WebAuthn
-    type: guide
-    nav-title: Use security with WebAuthn
-  - url: /guides/security-properties
-    title: Using Security with .properties File
-    type: guide
-    nav-title: Use security with .properties
-  - url: /guides/credentials-provider
-    title: Using a Credentials Provider
-    type: guide
-    nav-title: Use a credentials provider
-  - url: /guides/security-keycloak-admin-client
-    title: Using Keycloak Admin Client
-    type: guide
-    nav-title: Use the Keycloak admin client
-  - url: /guides/security-customization
-    title: Security Tips and Tricks
-    type: guide
-    nav-title: Security tips and tricks
-  - url: /guides/security-testing
-    title: Security Testing
-    type: guide
-    nav-title: Test security
-  - url: /guides/config-secrets
-    title: Secrets in Configuration
-    type: guide
-    nav-title: Manage configuration secrets
-  - url: /guides/native-and-ssl
-    title: Using SSL With Native Executables
-    type: guide
-    nav-title: Use SSL with native executables
-  - url: /guides/proxy-registry
-    title: Using Proxy Registry
-    type: guide
-    nav-title: Use the proxy registry
+  - subcategory: Tutorials
+    guides:
+    - url: /guides/security-getting-started-tutorial
+      title: Getting started with security by using Basic authentication and Jakarta Persistence
+      type: tutorial
+      nav-title: Get started with Basic auth and JPA
+    - url: /guides/security-oidc-bearer-token-authentication-tutorial
+      title: Protect a service application by using OpenID Connect (OIDC) Bearer token authentication
+      type: tutorial
+      nav-title: Protect a service with OIDC bearer tokens
+    - url: /guides/security-oidc-code-flow-authentication-tutorial
+      title: Protect a web application by using OpenID Connect (OIDC) authorization code flow
+      type: tutorial
+      nav-title: Protect a web app with OIDC code flow
+    - url: /guides/security-oidc-auth0-tutorial
+      title: Protect a Quarkus web application by using an Auth0 OpenID Connect provider
+      type: tutorial
+      nav-title: Protect a web app with Auth0
+    - url: /guides/security-openid-connect-client
+      title: OpenID Connect client and token propagation quickstart
+      type: tutorial
+      nav-title: Get started with OIDC client
+    - url: /guides/security-vertx-oidc-to-quarkus-oidc-migration
+      title: Migrate from Vert.x OIDC to Quarkus OIDC
+      type: tutorial
+      nav-title: Migrate from Vert.x OIDC
+  - subcategory: OIDC & OAuth
+    guides:
+    - url: /guides/security-oidc-bearer-token-authentication
+      title: OpenID Connect (OIDC) Bearer token authentication
+      type: concepts
+      nav-title: Understand OIDC bearer authentication
+    - url: /guides/security-oidc-code-flow-authentication
+      title: OpenID Connect authorization code flow mechanism for protecting web applications
+      type: concepts
+      nav-title: Understand OIDC code flow
+    - url: /guides/security-openid-connect-providers
+      title: Configuring Well-Known OpenID Connect Providers
+      type: concepts
+      nav-title: Understand OIDC providers
+    - url: /guides/security-oidc-expanded-configuration
+      title: Quarkus OpenId Connect (OIDC) Expanded Configuration Reference
+      type: concepts
+      nav-title: OIDC expanded configuration
+    - url: /guides/security-keycloak-authorization
+      title: Using OpenID Connect (OIDC) and Keycloak to centralize authorization
+      type: howto
+      nav-title: Centralize authorization with Keycloak
+    - url: /guides/security-openid-connect-multitenancy
+      title: Using OpenID Connect (OIDC) multitenancy
+      type: howto
+      nav-title: Configure OIDC multitenancy
+    - url: /guides/security-openid-connect-dev-services
+      title: Dev Services and Dev UI for OpenID Connect (OIDC)
+      type: howto
+      nav-title: Use OIDC Dev Services
+    - url: /guides/security-authorize-web-endpoints-reference
+      title: Authorization of web endpoints
+      type: reference
+      nav-title: Web endpoint authorization reference
+    - url: /guides/security-oidc-configuration-properties-reference
+      title: OpenID Connect (OIDC) configuration properties
+      type: reference
+      nav-title: OIDC configuration properties
+    - url: /guides/security-openid-connect-client-reference
+      title: OpenID Connect (OIDC) and OAuth2 client and filters
+      type: reference
+      nav-title: OIDC and OAuth2 client reference
+    - url: /guides/security-openid-connect-client-registration
+      title: OpenID Connect (OIDC) and OAuth2 dynamic client registration
+      type: reference
+      nav-title: OIDC dynamic client registration
+  - subcategory: JWT & OAuth2
+    guides:
+    - url: /guides/security-jwt
+      title: Using JWT RBAC
+      type: guide
+      nav-title: Use JWT RBAC
+    - url: /guides/security-jwt-build
+      title: Build, sign, and encrypt JSON Web Tokens
+      type: guide
+      nav-title: Build, sign, and encrypt JWTs
+    - url: /guides/security-oauth2
+      title: Using OAuth2 RBAC
+      type: guide
+      nav-title: Use OAuth2 RBAC
+  - subcategory: Identity stores
+    guides:
+    - url: /guides/security-basic-authentication-howto
+      title: Enable Basic authentication
+      type: howto
+    - url: /guides/security-jpa
+      title: Quarkus Security with Jakarta Persistence
+      type: howto
+      nav-title: Set up security with JPA
+    - url: /guides/security-jdbc
+      title: Using Security with JDBC
+      type: guide
+      nav-title: Use security with JDBC
+    - url: /guides/security-ldap
+      title: Using Security with an LDAP Realm
+      type: guide
+      nav-title: Use security with LDAP
+    - url: /guides/security-webauthn
+      title: Using Security with WebAuthn
+      type: guide
+      nav-title: Use security with WebAuthn
+    - url: /guides/security-properties
+      title: Using Security with .properties File
+      type: guide
+      nav-title: Use security with .properties
+    - url: /guides/credentials-provider
+      title: Using a Credentials Provider
+      type: guide
+      nav-title: Use a credentials provider
+    - url: /guides/security-keycloak-admin-client
+      title: Using Keycloak Admin Client
+      type: guide
+      nav-title: Use the Keycloak admin client
+  - subcategory: Security tools
+    guides:
+    - url: /guides/security-customization
+      title: Security Tips and Tricks
+      type: guide
+      nav-title: Security tips and tricks
+    - url: /guides/security-testing
+      title: Security Testing
+      type: guide
+      nav-title: Test security
+    - url: /guides/config-secrets
+      title: Secrets in Configuration
+      type: guide
+      nav-title: Manage configuration secrets
+    - url: /guides/native-and-ssl
+      title: Using SSL With Native Executables
+      type: guide
+      nav-title: Use SSL with native executables
+    - url: /guides/proxy-registry
+      title: Using Proxy Registry
+      type: guide
+      nav-title: Use the proxy registry
 - id: send-and-receive-messages
   title: Send and Receive Messages
   job: Produce and consume messages with Kafka, AMQP, Pulsar, or RabbitMQ to decouple services.
@@ -626,145 +658,157 @@ domains:
     nav-title: Deploy to Kubernetes
     featured: true
     featured-summary: Package and deploy your app to Kubernetes
-  - url: /guides/deploying-to-openshift
-    title: Deploying Quarkus applications to OpenShift
-    type: guide
-    nav-title: Deploy to OpenShift
-  - url: /guides/deploying-to-openshift-howto
-    title: Deploying Quarkus applications to OpenShift in a single step
-    type: howto
-    nav-title: Deploy to OpenShift in one step
-  - url: /guides/deploying-to-openshift-docker-howto
-    title: Deploying Quarkus Java applications to OpenShift by using a Docker build strategy
-    type: howto
-    nav-title: Deploy to OpenShift with Docker
-  - url: /guides/deploying-to-openshift-native-howto
-    title: Deploying Quarkus applications compiled to native executables
-    type: howto
-    nav-title: Deploy native executables to OpenShift
-  - url: /guides/deploying-to-openshift-s2i-howto
-    title: Using S2I to deploy Quarkus applications to OpenShift
-    type: howto
-    nav-title: Deploy to OpenShift with S2I
-  - url: /guides/deploying-to-google-cloud
-    title: Deploying to Google Cloud Platform (GCP)
-    type: guide
-    nav-title: Deploy to Google Cloud
-  - url: /guides/deploying-to-azure-cloud
-    title: Deploying to Microsoft Azure Cloud
-    type: guide
-    nav-title: Deploy to Azure
-  - url: /guides/deploying-to-heroku
-    title: Deploying to Heroku
-    type: guide
-    nav-title: Deploy to Heroku
-  - url: /guides/aws-lambda
-    title: AWS Lambda
-    type: guide
-    nav-title: Deploy to AWS Lambda
-  - url: /guides/aws-lambda-snapstart
-    title: AWS Lambda SnapStart Configuration
-    type: guide
-    nav-title: Configure AWS Lambda SnapStart
-  - url: /guides/aws-lambda-http
-    title: AWS Lambda with Quarkus REST, Undertow, or Reactive Routes
-    type: guide
-    nav-title: Use AWS Lambda with HTTP
-  - url: /guides/azure-functions
-    title: Azure Functions
-    type: guide
-    nav-title: Deploy to Azure Functions
-  - url: /guides/azure-functions-http
-    title: Azure Functions with Quarkus REST, Undertow, or Reactive Routes
-    type: guide
-    nav-title: Use Azure Functions with HTTP
-  - url: /guides/gcp-functions
-    title: Google Cloud Functions (Serverless)
-    type: guide
-    nav-title: Deploy to Google Cloud Functions
-  - url: /guides/gcp-functions-http
-    title: Google Cloud Functions (Serverless) with Quarkus REST, Undertow, or Reactive Routes
-    type: guide
-    nav-title: Use Google Cloud Functions with HTTP
-  - url: /guides/funqy
-    title: Funqy
-    type: guide
-    nav-title: Use Funqy
-  - url: /guides/funqy-aws-lambda
-    title: Funqy AWS Lambda Binding
-    type: guide
-    nav-title: Use Funqy with AWS Lambda
-  - url: /guides/funqy-gcp-functions
-    title: Funqy Google Cloud Functions
-    type: guide
-    nav-title: Use Funqy with Google Cloud Functions
-  - url: /guides/funqy-http
-    title: Funqy HTTP Binding (Standalone)
-    type: guide
-    nav-title: Use Funqy HTTP standalone
-  - url: /guides/funqy-aws-lambda-http
-    title: Funqy HTTP Binding with AWS Lambda 
-    type: guide
-    nav-title: Use Funqy HTTP with AWS Lambda
-  - url: /guides/funqy-azure-functions-http
-    title: Funqy HTTP Binding with Azure Functions
-    type: guide
-    nav-title: Use Funqy HTTP with Azure Functions
-  - url: /guides/funqy-gcp-functions-http
-    title: Funqy HTTP Binding with Google Cloud Functions
-    type: guide
-    nav-title: Use Funqy HTTP with Google Cloud Functions
-  - url: /guides/funqy-knative-events
-    title: Funqy Knative Events Binding
-    type: guide
-    nav-title: Use Funqy with Knative Events
-  - url: /guides/kubernetes-client
-    title: Kubernetes Client
-    type: guide
-    nav-title: Use the Kubernetes client
-  - url: /guides/kubernetes-config
-    title: Kubernetes Config
-    type: guide
-    nav-title: Use Kubernetes config
-  - url: /guides/stork
-    title: Getting Started with SmallRye Stork
-    type: guide
-    nav-title: Get started with SmallRye Stork
-  - url: /guides/stork-reference
-    title: Stork Reference Guide
-    type: reference
-    nav-title: Stork reference
-  - url: /guides/stork-kubernetes
-    title: Using Stork with Kubernetes
-    type: guide
-    nav-title: Use Stork with Kubernetes
-  - url: /guides/kubernetes-dev-services
-    title: Dev Services for Kubernetes
-    type: guide
-  - url: /guides/init-tasks
-    title: Initialization tasks
-    type: guide
-    nav-title: Configure initialization tasks
-  - url: /guides/ansible
-    title: Automate Quarkus deployment with Ansible
-    type: guide
-    nav-title: Automate deployment with Ansible
-  - url: /guides/appcds
-    title: AppCDS
-    type: guide
-    nav-title: Use AppCDS
-  - url: /guides/native-reference
-    title: Native Reference Guide
-    type: reference
-    nav-title: Native reference
-  - url: /guides/writing-native-applications-tips
-    title: Tips for writing native applications
-    type: guide
-    nav-title: Write native applications
-  - url: /guides/upx
-    title: Compressing native executables using UPX
-    type: guide
-    nav-title: Compress native executables with UPX
+  - subcategory: OpenShift
+    guides:
+    - url: /guides/deploying-to-openshift
+      title: Deploying Quarkus applications to OpenShift
+      type: guide
+      nav-title: Deploy to OpenShift
+    - url: /guides/deploying-to-openshift-howto
+      title: Deploying Quarkus applications to OpenShift in a single step
+      type: howto
+      nav-title: Deploy to OpenShift in one step
+    - url: /guides/deploying-to-openshift-docker-howto
+      title: Deploying Quarkus Java applications to OpenShift by using a Docker build strategy
+      type: howto
+      nav-title: Deploy to OpenShift with Docker
+    - url: /guides/deploying-to-openshift-native-howto
+      title: Deploying Quarkus applications compiled to native executables
+      type: howto
+      nav-title: Deploy native executables to OpenShift
+    - url: /guides/deploying-to-openshift-s2i-howto
+      title: Using S2I to deploy Quarkus applications to OpenShift
+      type: howto
+      nav-title: Deploy to OpenShift with S2I
+  - subcategory: Cloud platforms
+    guides:
+    - url: /guides/deploying-to-google-cloud
+      title: Deploying to Google Cloud Platform (GCP)
+      type: guide
+      nav-title: Deploy to Google Cloud
+    - url: /guides/deploying-to-azure-cloud
+      title: Deploying to Microsoft Azure Cloud
+      type: guide
+      nav-title: Deploy to Azure
+    - url: /guides/deploying-to-heroku
+      title: Deploying to Heroku
+      type: guide
+      nav-title: Deploy to Heroku
+  - subcategory: Serverless
+    guides:
+    - url: /guides/aws-lambda
+      title: AWS Lambda
+      type: guide
+      nav-title: Deploy to AWS Lambda
+    - url: /guides/aws-lambda-snapstart
+      title: AWS Lambda SnapStart Configuration
+      type: guide
+      nav-title: Configure AWS Lambda SnapStart
+    - url: /guides/aws-lambda-http
+      title: AWS Lambda with Quarkus REST, Undertow, or Reactive Routes
+      type: guide
+      nav-title: Use AWS Lambda with HTTP
+    - url: /guides/azure-functions
+      title: Azure Functions
+      type: guide
+      nav-title: Deploy to Azure Functions
+    - url: /guides/azure-functions-http
+      title: Azure Functions with Quarkus REST, Undertow, or Reactive Routes
+      type: guide
+      nav-title: Use Azure Functions with HTTP
+    - url: /guides/gcp-functions
+      title: Google Cloud Functions (Serverless)
+      type: guide
+      nav-title: Deploy to Google Cloud Functions
+    - url: /guides/gcp-functions-http
+      title: Google Cloud Functions (Serverless) with Quarkus REST, Undertow, or Reactive Routes
+      type: guide
+      nav-title: Use Google Cloud Functions with HTTP
+  - subcategory: Funqy
+    guides:
+    - url: /guides/funqy
+      title: Funqy
+      type: guide
+      nav-title: Use Funqy
+    - url: /guides/funqy-aws-lambda
+      title: Funqy AWS Lambda Binding
+      type: guide
+      nav-title: Use Funqy with AWS Lambda
+    - url: /guides/funqy-gcp-functions
+      title: Funqy Google Cloud Functions
+      type: guide
+      nav-title: Use Funqy with Google Cloud Functions
+    - url: /guides/funqy-http
+      title: Funqy HTTP Binding (Standalone)
+      type: guide
+      nav-title: Use Funqy HTTP standalone
+    - url: /guides/funqy-aws-lambda-http
+      title: Funqy HTTP Binding with AWS Lambda 
+      type: guide
+      nav-title: Use Funqy HTTP with AWS Lambda
+    - url: /guides/funqy-azure-functions-http
+      title: Funqy HTTP Binding with Azure Functions
+      type: guide
+      nav-title: Use Funqy HTTP with Azure Functions
+    - url: /guides/funqy-gcp-functions-http
+      title: Funqy HTTP Binding with Google Cloud Functions
+      type: guide
+      nav-title: Use Funqy HTTP with Google Cloud Functions
+    - url: /guides/funqy-knative-events
+      title: Funqy Knative Events Binding
+      type: guide
+      nav-title: Use Funqy with Knative Events
+  - subcategory: Service discovery & Kubernetes tools
+    guides:
+    - url: /guides/kubernetes-client
+      title: Kubernetes Client
+      type: guide
+      nav-title: Use the Kubernetes client
+    - url: /guides/kubernetes-config
+      title: Kubernetes Config
+      type: guide
+      nav-title: Use Kubernetes config
+    - url: /guides/stork
+      title: Getting Started with SmallRye Stork
+      type: guide
+      nav-title: Get started with SmallRye Stork
+    - url: /guides/stork-reference
+      title: Stork Reference Guide
+      type: reference
+      nav-title: Stork reference
+    - url: /guides/stork-kubernetes
+      title: Using Stork with Kubernetes
+      type: guide
+      nav-title: Use Stork with Kubernetes
+    - url: /guides/kubernetes-dev-services
+      title: Dev Services for Kubernetes
+      type: guide
+    - url: /guides/init-tasks
+      title: Initialization tasks
+      type: guide
+      nav-title: Configure initialization tasks
+    - url: /guides/ansible
+      title: Automate Quarkus deployment with Ansible
+      type: guide
+      nav-title: Automate deployment with Ansible
+  - subcategory: Native compilation
+    guides:
+    - url: /guides/appcds
+      title: AppCDS
+      type: guide
+      nav-title: Use AppCDS
+    - url: /guides/native-reference
+      title: Native Reference Guide
+      type: reference
+      nav-title: Native reference
+    - url: /guides/writing-native-applications-tips
+      title: Tips for writing native applications
+      type: guide
+      nav-title: Write native applications
+    - url: /guides/upx
+      title: Compressing native executables using UPX
+      type: guide
+      nav-title: Compress native executables with UPX
 - id: observe-your-application
   title: Observe Your Application
   job: Collect metrics, traces, and logs with OpenTelemetry and Micrometer to monitor production services.

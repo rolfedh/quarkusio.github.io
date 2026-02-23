@@ -1,6 +1,13 @@
-/* Sidebar wrapper — uses existing .hide-mobile class for responsive */
+/* Sidebar wrapper — uses existing .hide-mobile class for responsive.
+ * Overrides the grid's width-3-12 (25%) to ~21% for a narrower sidebar. */
 .guide-sidebar-wrapper {
   display: flex;
+  width: 21.25% !important;
+}
+
+/* Let the content column expand to fill the space freed by the narrower sidebar */
+.guide-sidebar-wrapper + .grid__item {
+  width: 78.75% !important;
 }
 
 /*
@@ -90,6 +97,27 @@
     font-family: monospace;
   }
 
+  /* Subcategory groups — nested accordions inside a domain */
+  .subcategory-group {
+    border-left: none;
+    padding: 0;
+
+    details {
+      margin-bottom: 0;
+
+      summary {
+        font-weight: 500;
+        font-size: 0.78rem;
+        padding: 0.15rem 0.4rem;
+        opacity: 0.85;
+      }
+    }
+
+    > details > ul {
+      padding-left: 0.6rem;
+    }
+  }
+
   /* Landing page variant: no sticky, no max-height */
   &--landing {
     position: static;
@@ -163,6 +191,21 @@
       font-size: 0.7rem;
       opacity: 0.5;
       font-family: monospace;
+    }
+
+    .subcategory-heading {
+      column-span: all;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid var(--sec-border-color, #e1e4e8);
+      color: var(--main-text-color);
+      opacity: 0.8;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
 
     @media screen and (max-width: 768px) {

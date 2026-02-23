@@ -37,7 +37,13 @@
   {% assign featured_guides = "" | split: "" %}
   {% for domain in site.data.domains.domains %}
     {% for entry in domain.guides %}
-      {% if entry.featured %}
+      {% if entry.subcategory %}
+        {% for subentry in entry.guides %}
+          {% if subentry.featured %}
+            {% assign featured_guides = featured_guides | push: subentry %}
+          {% endif %}
+        {% endfor %}
+      {% elsif entry.featured %}
         {% assign featured_guides = featured_guides | push: entry %}
       {% endif %}
     {% endfor %}
@@ -77,7 +83,20 @@
             <summary>{{ domain.title }}</summary>
             <ul>
               {% for entry in domain.guides %}
+              {% if entry.subcategory %}
+              <li class="subcategory-group">
+                <details open>
+                  <summary>{{ entry.subcategory }}</summary>
+                  <ul>
+                    {% for subentry in entry.guides %}
+                    <li><a href="#{{ domain.id }}">{{ subentry.nav-title | default: subentry.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </details>
+              </li>
+              {% else %}
               <li><a href="#{{ domain.id }}">{{ entry.nav-title | default: entry.title }}</a></li>
+              {% endif %}
               {% endfor %}
             </ul>
           </details>
@@ -94,14 +113,28 @@
           <p class="domain-job">{{ domain.job }}</p>
           <ul class="domain-guides">
           {% for entry in domain.guides %}
+            {% if entry.subcategory %}
+            <li class="subcategory-heading">{{ entry.subcategory }}</li>
+            {% for subentry in entry.guides %}
             <li>
-              <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ entry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ entry.url }}{% endif %}">{{ entry.nav-title | default: entry.title }}</a>
+              <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ subentry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ subentry.url }}{% endif %}">{{ subentry.title }}</a>
+              {% if subentry.type == 'tutorial' %}<span class="type-badge">[T]</span>
+              {% elsif subentry.type == 'howto' %}<span class="type-badge">[H]</span>
+              {% elsif subentry.type == 'reference' %}<span class="type-badge">[R]</span>
+              {% elsif subentry.type == 'concepts' %}<span class="type-badge">[C]</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+            {% else %}
+            <li>
+              <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ entry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ entry.url }}{% endif %}">{{ entry.title }}</a>
               {% if entry.type == 'tutorial' %}<span class="type-badge">[T]</span>
               {% elsif entry.type == 'howto' %}<span class="type-badge">[H]</span>
               {% elsif entry.type == 'reference' %}<span class="type-badge">[R]</span>
               {% elsif entry.type == 'concepts' %}<span class="type-badge">[C]</span>
               {% endif %}
             </li>
+            {% endif %}
           {% endfor %}
           </ul>
         </section>

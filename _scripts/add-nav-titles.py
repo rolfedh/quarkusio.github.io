@@ -17,7 +17,17 @@ General:
 
 import yaml
 import sys
+from collections import OrderedDict
 from pathlib import Path
+
+
+def iter_guides(domain):
+    """Yield every guide entry in a domain, descending into subcategories."""
+    for entry in domain.get("guides", []):
+        if "subcategory" in entry:
+            yield from entry.get("guides", [])
+        else:
+            yield entry
 
 # ── Explicit nav-title overrides ──────────────────────────────────────────
 # key = original title (exact match), value = JTBD nav-title.
@@ -349,17 +359,231 @@ JOB_OVERRIDES = {
     "build-ai-applications": "Integrate large language models, RAG pipelines, and AI services into your Java application.",
 }
 
+# ── Subcategory structure ───────────────────────────────────────────────
+# After regeneration the guides array is flat. This dict re-wraps guides
+# into subcategory blocks. Key = domain id, value = ordered list of
+# {"title": str, "urls": [str]}. Guides whose URL is NOT listed in any
+# subcategory remain at the top level.
+SUBCATEGORIES = {
+    "build-backend-apis": [
+        {"title": "GraphQL", "urls": [
+            "/guides/smallrye-graphql",
+            "/guides/smallrye-graphql-client",
+        ]},
+        {"title": "gRPC", "urls": [
+            "/guides/grpc",
+            "/guides/grpc-getting-started",
+            "/guides/grpc-service-implementation",
+            "/guides/grpc-service-consumption",
+            "/guides/grpc-kubernetes",
+            "/guides/grpc-virtual-threads",
+            "/guides/grpc-cli",
+            "/guides/grpc-xds",
+            "/guides/grpc-reference",
+            "/guides/grpc-generation-reference",
+        ]},
+        {"title": "HTTP & networking", "urls": [
+            "/guides/http-reference",
+            "/guides/tls-registry-reference",
+            "/guides/security-cors",
+            "/guides/load-shedding-reference",
+        ]},
+        {"title": "Legacy REST (RESTEasy Classic)", "urls": [
+            "/guides/resteasy",
+            "/guides/resteasy-client",
+            "/guides/resteasy-client-multipart",
+            "/guides/web-dependency-locator",
+        ]},
+    ],
+    "deploy-to-the-cloud": [
+        {"title": "OpenShift", "urls": [
+            "/guides/deploying-to-openshift",
+            "/guides/deploying-to-openshift-howto",
+            "/guides/deploying-to-openshift-docker-howto",
+            "/guides/deploying-to-openshift-native-howto",
+            "/guides/deploying-to-openshift-s2i-howto",
+        ]},
+        {"title": "Cloud platforms", "urls": [
+            "/guides/deploying-to-google-cloud",
+            "/guides/deploying-to-azure-cloud",
+            "/guides/deploying-to-heroku",
+        ]},
+        {"title": "Serverless", "urls": [
+            "/guides/aws-lambda",
+            "/guides/aws-lambda-snapstart",
+            "/guides/aws-lambda-http",
+            "/guides/azure-functions",
+            "/guides/azure-functions-http",
+            "/guides/gcp-functions",
+            "/guides/gcp-functions-http",
+        ]},
+        {"title": "Funqy", "urls": [
+            "/guides/funqy",
+            "/guides/funqy-aws-lambda",
+            "/guides/funqy-gcp-functions",
+            "/guides/funqy-http",
+            "/guides/funqy-aws-lambda-http",
+            "/guides/funqy-azure-functions-http",
+            "/guides/funqy-gcp-functions-http",
+            "/guides/funqy-knative-events",
+        ]},
+        {"title": "Service discovery & Kubernetes tools", "urls": [
+            "/guides/kubernetes-client",
+            "/guides/kubernetes-config",
+            "/guides/stork",
+            "/guides/stork-reference",
+            "/guides/stork-kubernetes",
+            "/guides/kubernetes-dev-services",
+            "/guides/init-tasks",
+            "/guides/ansible",
+        ]},
+        {"title": "Native compilation", "urls": [
+            "/guides/appcds",
+            "/guides/native-reference",
+            "/guides/writing-native-applications-tips",
+            "/guides/upx",
+        ]},
+    ],
+    "access-and-manage-data": [
+        {"title": "Schema migration", "urls": [
+            "/guides/flyway",
+            "/guides/liquibase",
+            "/guides/liquibase-mongodb",
+        ]},
+        {"title": "MongoDB", "urls": [
+            "/guides/mongodb-panache",
+            "/guides/mongodb-panache-kotlin",
+            "/guides/mongodb",
+            "/guides/mongodb-dev-services",
+        ]},
+        {"title": "Redis", "urls": [
+            "/guides/redis",
+            "/guides/redis-reference",
+            "/guides/cache-redis-reference",
+            "/guides/redis-dev-services",
+        ]},
+        {"title": "Caching", "urls": [
+            "/guides/cache",
+            "/guides/cache-infinispan-reference",
+        ]},
+        {"title": "Search", "urls": [
+            "/guides/elasticsearch",
+            "/guides/hibernate-search-orm-elasticsearch",
+            "/guides/hibernate-search-standalone-elasticsearch",
+            "/guides/elasticsearch-dev-services",
+        ]},
+        {"title": "Other data stores", "urls": [
+            "/guides/infinispan-client",
+            "/guides/infinispan-client-reference",
+            "/guides/infinispan-dev-services",
+            "/guides/cassandra",
+        ]},
+        {"title": "Transactions & STM", "urls": [
+            "/guides/transaction",
+            "/guides/blaze-persistence",
+            "/guides/lra",
+            "/guides/software-transactional-memory",
+            "/guides/lra-dev-services",
+            "/guides/databases-dev-services",
+        ]},
+    ],
+    "secure-your-application": [
+        {"title": "Tutorials", "urls": [
+            "/guides/security-getting-started-tutorial",
+            "/guides/security-oidc-bearer-token-authentication-tutorial",
+            "/guides/security-oidc-code-flow-authentication-tutorial",
+            "/guides/security-oidc-auth0-tutorial",
+            "/guides/security-openid-connect-client",
+            "/guides/security-vertx-oidc-to-quarkus-oidc-migration",
+        ]},
+        {"title": "OIDC & OAuth", "urls": [
+            "/guides/security-oidc-bearer-token-authentication",
+            "/guides/security-oidc-code-flow-authentication",
+            "/guides/security-openid-connect-providers",
+            "/guides/security-oidc-expanded-configuration",
+            "/guides/security-keycloak-authorization",
+            "/guides/security-openid-connect-multitenancy",
+            "/guides/security-openid-connect-dev-services",
+            "/guides/security-authorize-web-endpoints-reference",
+            "/guides/security-oidc-configuration-properties-reference",
+            "/guides/security-openid-connect-client-reference",
+            "/guides/security-openid-connect-client-registration",
+        ]},
+        {"title": "JWT & OAuth2", "urls": [
+            "/guides/security-jwt",
+            "/guides/security-jwt-build",
+            "/guides/security-oauth2",
+        ]},
+        {"title": "Identity stores", "urls": [
+            "/guides/security-basic-authentication-howto",
+            "/guides/security-jpa",
+            "/guides/security-jdbc",
+            "/guides/security-ldap",
+            "/guides/security-webauthn",
+            "/guides/security-properties",
+            "/guides/credentials-provider",
+            "/guides/security-keycloak-admin-client",
+        ]},
+        {"title": "Security tools", "urls": [
+            "/guides/security-customization",
+            "/guides/security-testing",
+            "/guides/config-secrets",
+            "/guides/native-and-ssl",
+            "/guides/proxy-registry",
+        ]},
+    ],
+}
+
 
 def add_nav_titles(domains_path: Path) -> None:
     with open(domains_path) as f:
         data = yaml.safe_load(f)
 
+    # Apply subcategory structure (before nav-titles so iter_guides works)
+    subcat_count = 0
+    for domain in data["domains"]:
+        domain_id = domain.get("id", "")
+        if domain_id not in SUBCATEGORIES:
+            continue
+        subcats = SUBCATEGORIES[domain_id]
+        # Build URL→subcategory-index lookup
+        url_to_subcat = {}
+        for idx, sc in enumerate(subcats):
+            for url in sc["urls"]:
+                url_to_subcat[url] = idx
+        # Partition guides into top-level and subcategory buckets
+        top_level = []
+        buckets = [[] for _ in subcats]
+        for entry in domain.get("guides", []):
+            if "subcategory" in entry:
+                # Already structured — keep as-is
+                top_level.append(entry)
+                continue
+            url = entry.get("url", "")
+            if url in url_to_subcat:
+                buckets[url_to_subcat[url]].append(entry)
+            else:
+                top_level.append(entry)
+        # Reassemble: top-level first, then subcategory blocks
+        new_guides = list(top_level)
+        for idx, sc in enumerate(subcats):
+            if buckets[idx]:
+                new_guides.append({
+                    "subcategory": sc["title"],
+                    "guides": buckets[idx],
+                })
+                subcat_count += 1
+        domain["guides"] = new_guides
+
+    print(f"Subcategory blocks created: {subcat_count}")
+
+    # Apply nav-title overrides (uses iter_guides to descend into subcategories)
     changed = 0
     unchanged = 0
     missing = []
 
     for domain in data["domains"]:
-        for guide in domain.get("guides", []):
+        for guide in iter_guides(domain):
             title = guide["title"].strip()
             if title in OVERRIDES:
                 nav = OVERRIDES[title]
@@ -375,7 +599,7 @@ def add_nav_titles(domains_path: Path) -> None:
     # Apply featured fields by URL
     featured_count = 0
     for domain in data["domains"]:
-        for guide in domain.get("guides", []):
+        for guide in iter_guides(domain):
             url = guide.get("url", "")
             if url in FEATURED:
                 for key, value in FEATURED[url].items():

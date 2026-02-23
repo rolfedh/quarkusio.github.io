@@ -9,8 +9,10 @@ All changes go in one file: `_data/domains.yaml`.
 | Task | Section |
 |------|---------|
 | Add a new guide | [Add a guide to a domain](#add-a-guide-to-a-domain) |
+| Add a guide to a subcategory | [Add a guide to a subcategory](#add-a-guide-to-a-subcategory) |
 | Move a guide to a different domain | [Move a guide between domains](#move-a-guide-between-domains) |
 | Reorder guides in the sidebar | [Reorder guides within a domain](#reorder-guides-within-a-domain) |
+| Create a new subcategory | [Create a new subcategory](#create-a-new-subcategory) |
 | Write or edit a sidebar title | [Set or change a nav-title](#set-or-change-a-nav-title) |
 | Add guides after a release | [Update guides after a Quarkus release](#update-guides-after-a-quarkus-release) |
 | Check for YAML errors | [Verify your changes](#verify-your-changes) |
@@ -43,6 +45,44 @@ Always include a `nav-title` for new entries — the original titles are usually
 
 Find `url`, `title`, and `type` for any existing guide in `_data/versioned/latest/index/quarkus.yaml` — search for the guide's filename (e.g., `rest-client`).
 
+## Add a guide to a subcategory
+
+Four large domains use subcategories to group related guides: Build Backend APIs, Deploy to the Cloud, Access and Manage Data, and Secure Your Application. A subcategory entry in `domains.yaml` looks like this:
+
+```yaml
+  - subcategory: gRPC
+    guides:
+    - url: /guides/grpc
+      title: gRPC
+      type: guide
+      nav-title: Use gRPC
+    - url: /guides/grpc-getting-started
+      title: Getting Started with gRPC
+      type: guide
+      nav-title: Get started with gRPC
+```
+
+To add a guide to an existing subcategory, find the `- subcategory: <name>` block and append a new entry to its `guides:` list. The fields are the same as for top-level guides (`url`, `title`, `type`, `nav-title`).
+
+To move a guide **into** a subcategory, cut its entry from the top-level `guides:` list and paste it into the subcategory's `guides:` list. To move a guide **out** of a subcategory, do the reverse.
+
+Guides that don't belong to any subcategory sit at the top level of the domain's `guides:` list, before or between subcategory blocks.
+
+## Create a new subcategory
+
+Add a `- subcategory:` entry to the domain's `guides:` list with a nested `guides:` array:
+
+```yaml
+  - subcategory: Your Subcategory Name
+    guides:
+    - url: /guides/some-guide
+      title: Some Guide Title
+      type: howto
+      nav-title: Do something
+```
+
+Subcategory blocks and top-level guides can be interleaved in any order — the YAML order is the display order. Currently only the 4 largest domains use subcategories; smaller domains stay flat.
+
 ## Move a guide between domains
 
 Cut the entire entry (all its fields) from one domain's `guides:` list and paste it into another.
@@ -51,7 +91,9 @@ Cut the entire entry (all its fields) from one domain's `guides:` list and paste
 
 The order in `domains.yaml` is the order in the sidebar and on the landing page. Move the entry block up or down within the `guides:` list.
 
-Existing guides are grouped by topic (e.g., all gRPC guides together). Within each topic group, entries follow this order: tutorials, concepts, how-to guides, then reference. Place new entries next to related guides in the same topic area.
+In domains with subcategories, you can reorder guides within a subcategory the same way. You can also reorder subcategory blocks relative to each other and to top-level guides — the YAML order is the display order.
+
+Within each group, entries follow this order: tutorials, concepts, how-to guides, then reference. Place new entries next to related guides in the same topic area.
 
 ## Create a new domain
 

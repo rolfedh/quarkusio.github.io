@@ -16,7 +16,13 @@
 {% assign current_domain = "" %}
 {% for domain in site.data.domains.domains %}
   {% for entry in domain.guides %}
-    {% if page.url == entry.url %}
+    {% if entry.subcategory %}
+      {% for subentry in entry.guides %}
+        {% if page.url == subentry.url %}
+          {% assign current_domain = domain.id %}
+        {% endif %}
+      {% endfor %}
+    {% elsif page.url == entry.url %}
       {% assign current_domain = domain.id %}
     {% endif %}
   {% endfor %}
@@ -29,6 +35,28 @@
     <summary>{{ domain.title }}</summary>
     <ul>
       {% for entry in domain.guides %}
+      {% if entry.subcategory %}
+      <li class="subcategory-group">
+        <details open>
+          <summary>{{ entry.subcategory }}</summary>
+          <ul>
+            {% for subentry in entry.guides %}
+            <li {% if page.url == subentry.url %}class="active"{% endif %}>
+              <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ subentry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ subentry.url }}{% endif %}"
+                 {% if page.url == subentry.url %}aria-current="page"{% endif %}>
+                {{ subentry.nav-title | default: subentry.title }}
+                {% if subentry.type == 'tutorial' %}<span class="type-badge">[T]</span>
+                {% elsif subentry.type == 'howto' %}<span class="type-badge">[H]</span>
+                {% elsif subentry.type == 'reference' %}<span class="type-badge">[R]</span>
+                {% elsif subentry.type == 'concepts' %}<span class="type-badge">[C]</span>
+                {% endif %}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </details>
+      </li>
+      {% else %}
       <li {% if page.url == entry.url %}class="active"{% endif %}>
         <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ entry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ entry.url }}{% endif %}"
            {% if page.url == entry.url %}aria-current="page"{% endif %}>
@@ -40,6 +68,7 @@
           {% endif %}
         </a>
       </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </details>

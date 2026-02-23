@@ -1,13 +1,6 @@
-/* Sidebar wrapper — uses existing .hide-mobile class for responsive.
- * Overrides the grid's width-3-12 (25%) to ~21% for a narrower sidebar. */
+/* Sidebar wrapper — uses existing .hide-mobile class for responsive */
 .guide-sidebar-wrapper {
   display: flex;
-  width: 21.25% !important;
-}
-
-/* Let the content column expand to fill the space freed by the narrower sidebar */
-.guide-sidebar-wrapper + .grid__item {
-  width: 78.75% !important;
 }
 
 /*

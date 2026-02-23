@@ -309,6 +309,46 @@ OVERRIDES = {
     "Creating a tutorial": "Create a tutorial",
 }
 
+# ── Featured guide overrides ─────────────────────────────────────────────
+# key = guide URL, value = dict of fields to set.
+# Applied after nav-title overrides so both survive regeneration.
+FEATURED = {
+    "/guides/getting-started": {
+        "featured": True,
+        "featured-summary": "Build a hello-world app in 10 minutes",
+    },
+    "/guides/rest": {
+        "featured": True,
+        "featured-summary": "Expose HTTP endpoints with JSON serialization",
+    },
+    "/guides/deploying-to-kubernetes": {
+        "featured": True,
+        "featured-summary": "Package and deploy your app to Kubernetes",
+    },
+}
+
+# ── Job statement overrides ──────────────────────────────────────────────
+# Replaces the JTBD "When I... I want... so I can..." statements with
+# concise use-case descriptions (Stripe-style).
+# key = domain id, value = new job text.
+JOB_OVERRIDES = {
+    "get-started": "Create a working application in minutes and explore the Quarkus developer experience.",
+    "build-backend-apis": "Expose REST endpoints, consume external APIs, and build reliable service-to-service communication.",
+    "build-web-uis": "Build full-stack web applications with server-side templates and real-time WebSocket connections.",
+    "access-and-manage-data": "Connect to databases, query with ORM frameworks, manage schema migrations, and cache data.",
+    "secure-your-application": "Add authentication, configure authorization, and protect endpoints with OIDC, JWT, or WebAuthn.",
+    "send-and-receive-messages": "Produce and consume messages with Kafka, AMQP, Pulsar, or RabbitMQ to decouple services.",
+    "deploy-to-the-cloud": "Build container images, compile native executables, and deploy to Kubernetes, OpenShift, or serverless platforms.",
+    "observe-your-application": "Collect metrics, traces, and logs with OpenTelemetry and Micrometer to monitor production services.",
+    "understand-the-runtime": "Learn how CDI, the reactive engine, virtual threads, and Dev Services work under the hood.",
+    "automate-and-integrate": "Schedule tasks, send email, apply business rules, and integrate with external systems.",
+    "use-build-tools": "Configure Maven or Gradle, measure test coverage, and optimize your build workflow.",
+    "use-spring-apis": "Use familiar Spring DI, Web, Data, and Security annotations as a migration bridge from Spring Boot.",
+    "write-extensions": "Build custom extensions with build-time optimizations and contribute reusable functionality to the ecosystem.",
+    "contribute-to-quarkus-docs": "Write documentation that meets the project's content standards and quality bar.",
+    "build-ai-applications": "Integrate large language models, RAG pipelines, and AI services into your Java application.",
+}
+
 
 def add_nav_titles(domains_path: Path) -> None:
     with open(domains_path) as f:
@@ -331,6 +371,28 @@ def add_nav_titles(domains_path: Path) -> None:
             else:
                 missing.append(title)
                 unchanged += 1
+
+    # Apply featured fields by URL
+    featured_count = 0
+    for domain in data["domains"]:
+        for guide in domain.get("guides", []):
+            url = guide.get("url", "")
+            if url in FEATURED:
+                for key, value in FEATURED[url].items():
+                    guide[key] = value
+                featured_count += 1
+
+    print(f"Featured fields applied: {featured_count}")
+
+    # Apply job statement overrides by domain id
+    job_count = 0
+    for domain in data["domains"]:
+        domain_id = domain.get("id", "")
+        if domain_id in JOB_OVERRIDES:
+            domain["job"] = JOB_OVERRIDES[domain_id]
+            job_count += 1
+
+    print(f"Job overrides applied: {job_count}")
 
     if missing:
         print(f"WARNING: {len(missing)} titles had no override (kept original):")

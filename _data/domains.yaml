@@ -3,14 +3,15 @@
 domains:
 - id: get-started
   title: Get Started
-  job: When I'm evaluating Quarkus or starting a new project, I want to create a working application quickly, so I can understand
-    the developer experience and decide if Quarkus fits my needs.
+  job: Create a working application in minutes and explore the Quarkus developer experience.
   order: 1
   guides:
   - url: /guides/getting-started
     title: Creating Your First Application
     type: tutorial
     nav-title: Create your first application
+    featured: true
+    featured-summary: Build a hello-world app in 10 minutes
   - url: /guides/getting-started-dev-services
     title: Your second Quarkus application
     type: tutorial
@@ -61,14 +62,15 @@ domains:
     nav-title: Use Kotlin
 - id: build-backend-apis
   title: Build Backend APIs
-  job: When I need to expose HTTP endpoints, consume external APIs, or build service-to-service communication, I want to create
-    and configure API services efficiently, so I can build reliable backends and integrations.
+  job: Expose REST endpoints, consume external APIs, and build reliable service-to-service communication.
   order: 2
   guides:
   - url: /guides/rest
     title: Writing REST Services with Quarkus REST (formerly RESTEasy Reactive)
     type: guide
     nav-title: Write REST services
+    featured: true
+    featured-summary: Expose HTTP endpoints with JSON serialization
   - url: /guides/rest-json
     title: Writing JSON REST Services
     type: guide
@@ -190,8 +192,7 @@ domains:
     nav-title: Use the web dependency locator
 - id: build-web-uis
   title: Build Web UIs
-  job: When I need to build a full-stack web application with server-side rendering, templating, or real-time WebSocket communication,
-    I want to use Quarkus web UI frameworks, so I can deliver interactive web experiences with Java on the backend.
+  job: Build full-stack web applications with server-side templates and real-time WebSocket connections.
   order: 3
   guides:
   - url: /guides/web
@@ -220,8 +221,7 @@ domains:
     nav-title: Use WebSockets with Undertow
 - id: access-and-manage-data
   title: Access and Manage Data
-  job: When I need to store, retrieve, or manage persistent data, I want to connect to databases, use ORM frameworks, and
-    manage schemas, so I can build data-driven applications reliably.
+  job: Connect to databases, query with ORM frameworks, manage schema migrations, and cache data.
   order: 4
   guides:
   - url: /guides/datasource
@@ -361,8 +361,7 @@ domains:
     type: guide
 - id: secure-your-application
   title: Secure Your Application
-  job: When I need to protect my application from unauthorized access, I want to configure authentication and authorization
-    mechanisms, so I can enforce security policies and protect sensitive resources.
+  job: Add authentication, configure authorization, and protect endpoints with OIDC, JWT, or WebAuthn.
   order: 5
   guides:
   - url: /guides/security-overview
@@ -526,8 +525,7 @@ domains:
     nav-title: Use the proxy registry
 - id: send-and-receive-messages
   title: Send and Receive Messages
-  job: When I need to build event-driven or asynchronous communication between services, I want to produce and consume messages
-    with a broker, so I can decouple my services and handle workloads asynchronously.
+  job: Produce and consume messages with Kafka, AMQP, Pulsar, or RabbitMQ to decouple services.
   order: 6
   guides:
   - url: /guides/messaging
@@ -611,8 +609,7 @@ domains:
     type: guide
 - id: deploy-to-the-cloud
   title: Deploy to the Cloud
-  job: When I need to run my application in production, I want to build optimized artifacts, create container images, and
-    deploy to cloud platforms, so I can ship my application with confidence.
+  job: Build container images, compile native executables, and deploy to Kubernetes, OpenShift, or serverless platforms.
   order: 7
   guides:
   - url: /guides/building-native-image
@@ -627,6 +624,8 @@ domains:
     title: Kubernetes extension
     type: guide
     nav-title: Deploy to Kubernetes
+    featured: true
+    featured-summary: Package and deploy your app to Kubernetes
   - url: /guides/deploying-to-openshift
     title: Deploying Quarkus applications to OpenShift
     type: guide
@@ -768,8 +767,7 @@ domains:
     nav-title: Compress native executables with UPX
 - id: observe-your-application
   title: Observe Your Application
-  job: When I need to monitor, troubleshoot, or understand the runtime behavior of my application, I want to collect and export
-    metrics, traces, and logs, so I can detect issues early and maintain service reliability.
+  job: Collect metrics, traces, and logs with OpenTelemetry and Micrometer to monitor production services.
   order: 8
   guides:
   - url: /guides/observability
@@ -837,9 +835,7 @@ domains:
     nav-title: Use observability Dev Services with Grafana LGTM
 - id: understand-the-runtime
   title: Understand the Runtime
-  job: When I need to understand how Quarkus works under the hood -- dependency injection, the reactive engine, virtual threads,
-    or the application lifecycle -- I want clear explanations and configuration guidance, so I can make informed architectural
-    decisions.
+  job: Learn how CDI, the reactive engine, virtual threads, and Dev Services work under the hood.
   order: 9
   guides:
   - url: /guides/cdi
@@ -933,9 +929,7 @@ domains:
     nav-title: Test components
 - id: automate-and-integrate
   title: Automate and Integrate
-  job: When I need to schedule recurring tasks, send email, apply business rules, or integrate with external systems beyond
-    HTTP and messaging, I want purpose-built extensions, so I can add these capabilities without writing integration code
-    from scratch.
+  job: Schedule tasks, send email, apply business rules, and integrate with external systems.
   order: 10
   guides:
   - url: /guides/scheduler
@@ -976,8 +970,7 @@ domains:
     nav-title: Write scripts
 - id: use-build-tools
   title: Use Build Tools
-  job: When I need to build, package, test, or manage my project, I want to use standard build tools with Quarkus-specific
-    optimizations, so I can integrate Quarkus into my existing development workflow.
+  job: Configure Maven or Gradle, measure test coverage, and optimize your build workflow.
   order: 11
   guides:
   - url: /guides/maven-tooling
@@ -1034,8 +1027,7 @@ domains:
     nav-title: Measure test coverage
 - id: use-spring-apis
   title: Use Spring APIs
-  job: When I'm moving an existing Spring Boot application to Quarkus or prefer Spring-style annotations, I want to use familiar
-    Spring APIs as a bridge, so I can migrate incrementally without rewriting everything at once.
+  job: Use familiar Spring DI, Web, Data, and Security annotations as a migration bridge from Spring Boot.
   order: 12
   guides:
   - url: /guides/spring-di
@@ -1076,8 +1068,7 @@ domains:
     nav-title: Use Spring Cloud Config
 - id: write-extensions
   title: Write Extensions
-  job: When I need to extend Quarkus with custom build-time optimizations or integrate a new library, I want to build and
-    package a Quarkus extension, so I can contribute reusable functionality to the ecosystem.
+  job: Build custom extensions with build-time optimizations and contribute reusable functionality to the ecosystem.
   order: 13
   guides:
   - url: /guides/writing-extensions
@@ -1143,8 +1134,7 @@ domains:
     nav-title: Write native applications
 - id: contribute-to-quarkus-docs
   title: Contribute to Quarkus Docs
-  job: When I want to contribute documentation to the Quarkus project, I want to understand the content standards and workflow,
-    so I can write content that meets the project's quality bar.
+  job: Write documentation that meets the project's content standards and quality bar.
   order: 14
   guides:
   - url: /guides/doc-concept
@@ -1164,7 +1154,6 @@ domains:
     nav-title: Create a tutorial
 - id: build-ai-applications
   title: Build AI Applications
-  job: When I need to integrate large language models, RAG pipelines, or AI services into my application, I want to use Quarkus
-    AI extensions, so I can build intelligent applications with Java.
+  job: Integrate large language models, RAG pipelines, and AI services into your Java application.
   order: 15
   guides: []

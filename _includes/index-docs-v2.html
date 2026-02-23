@@ -33,6 +33,38 @@
 
   <div><h1 class="title">{{ page.title }}</h1></div>
 
+  {% comment %} Recommended first steps — 3 featured guides above the domain list {% endcomment %}
+  {% assign featured_guides = "" | split: "" %}
+  {% for domain in site.data.domains.domains %}
+    {% for entry in domain.guides %}
+      {% if entry.featured %}
+        {% assign featured_guides = featured_guides | push: entry %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if featured_guides.size > 0 %}
+  <section class="start-here">
+    <h2>Recommended first steps</h2>
+    <div class="start-here__cards">
+      {% for guide in featured_guides %}
+      <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ guide.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ guide.url }}{% endif %}" class="start-here__card">
+        <h3>{{ guide.nav-title | default: guide.title }}</h3>
+        <p>{{ guide.featured-summary }}</p>
+        <span class="type-badge">
+          {% if guide.type == 'tutorial' %}Tutorial
+          {% elsif guide.type == 'howto' %}How-to
+          {% elsif guide.type == 'reference' %}Reference
+          {% elsif guide.type == 'concepts' %}Concepts
+          {% else %}Guide
+          {% endif %}
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   <qs-target origins-with-relative-urls="quarkus">
     <div class="grid-wrapper guides" id="all-docs">
 
@@ -63,7 +95,7 @@
           <ul class="domain-guides">
           {% for entry in domain.guides %}
             <li>
-              <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ entry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ entry.url }}{% endif %}">{{ entry.title }}</a>
+              <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ entry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ entry.url }}{% endif %}">{{ entry.nav-title | default: entry.title }}</a>
               {% if entry.type == 'tutorial' %}<span class="type-badge">[T]</span>
               {% elsif entry.type == 'howto' %}<span class="type-badge">[H]</span>
               {% elsif entry.type == 'reference' %}<span class="type-badge">[R]</span>

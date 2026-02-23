@@ -170,3 +170,68 @@
     }
   }
 }
+
+/* "Recommended first steps" hero section — featured guide cards above the domain list.
+ * Placed outside .domain-section to avoid inheriting domain list styles.
+ *
+ * DARK MODE: All colors use CSS custom properties from colormode.scss.
+ * Never hardcode hex colors. */
+.start-here {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: var(--sec-background-color);
+  border-radius: 8px;
+  border: 1px solid var(--card-outline, #e1e4e8);
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    display: block;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--card-outline, #e1e4e8);
+    border-radius: 6px;
+    background: var(--card-background-color, #fff);
+    color: var(--main-text-color);
+    text-decoration: none;
+    transition: border-color 0.15s;
+
+    &:hover {
+      border-color: var(--link-color, #4695EB);
+      text-decoration: none;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      color: var(--link-color, #4695EB);
+    }
+
+    p {
+      margin: 0 0 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--main-text-color);
+      opacity: 0.8;
+    }
+
+    .type-badge {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      font-family: monospace;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -94,7 +94,7 @@
                   <summary>{{ entry.subcategory }}</summary>
                   <ul>
                     {% for subentry in entry.guides %}
-                    <li><a href="#{{ domain.id }}">{{ subentry.nav-title | default: subentry.title }}</a></li>
+                    <li><a href="#{{ domain.id }}-{{ entry.subcategory | slugify }}">{{ subentry.nav-title | default: subentry.title }}</a></li>
                     {% endfor %}
                   </ul>
                 </details>
@@ -119,7 +119,7 @@
           <ul class="domain-guides">
           {% for entry in domain.guides %}
             {% if entry.subcategory %}
-            <li class="subcategory-heading">{{ entry.subcategory }}</li>
+            <li class="subcategory-heading" id="{{ domain.id }}-{{ entry.subcategory | slugify }}">{{ entry.subcategory }}</li>
             {% for subentry in entry.guides %}
             <li>
               <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ subentry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ subentry.url }}{% endif %}">{{ subentry.title }}</a>

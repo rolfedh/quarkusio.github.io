@@ -33,7 +33,7 @@
 
   <div><h1 class="title">{{ page.title }}</h1></div>
 
-  {% comment %} Recommended first steps — 3 featured guides above the domain list {% endcomment %}
+  {% comment %} Most popular — featured guides + config link above the domain list {% endcomment %}
   {% assign featured_guides = "" | split: "" %}
   {% for domain in site.data.domains.domains %}
     {% for entry in domain.guides %}
@@ -51,7 +51,7 @@
 
   {% if featured_guides.size > 0 %}
   <section class="start-here">
-    <h2>Recommended first steps</h2>
+    <h2>Most popular</h2>
     <div class="start-here__cards">
       {% for guide in featured_guides %}
       <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ guide.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ guide.url }}{% endif %}" class="start-here__card">
@@ -67,6 +67,11 @@
         </span>
       </a>
       {% endfor %}
+      <a href="{% if docversion == 'latest' %}{{ site.baseurl }}/guides/all-config{% else %}{{ site.baseurl }}/version/{{ docversion }}/guides/all-config{% endif %}" class="start-here__card">
+        <h3>All configuration properties</h3>
+        <p>Find any configuration property across all extensions</p>
+        <span class="type-badge" title="Reference">Reference</span>
+      </a>
     </div>
   </section>
   {% endif %}

@@ -1011,15 +1011,15 @@ domains:
   - subcategory: Build interactive CLI applications with Aesh
     guides:
     - url: /guides/aesh-tutorial
-      title: Getting started with Aesh
+      title: Build your first CLI application with Aesh
       type: tutorial
       nav-title: Get started with Aesh
     - url: /guides/aesh-howto
-      title: Command Mode with Aesh
+      title: Build CLI applications with Aesh
       type: howto
       nav-title: Build CLI apps with Aesh
     - url: /guides/aesh-concept
-      title: About the Aesh extension
+      title: Understand the Aesh extension
       type: concept
       nav-title: About Aesh
     - url: /guides/aesh-reference

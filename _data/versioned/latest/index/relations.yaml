@@ -24898,7 +24898,7 @@
     matches: 1
 /guides/aesh-tutorial:
   sameTopics:
-  - title: Command Mode with Aesh
+  - title: Build CLI applications with Aesh
     url: /guides/aesh-howto
     type: howto
     matches: 3
@@ -24906,7 +24906,7 @@
     url: /guides/aesh-reference
     type: reference
     matches: 3
-  - title: About the Aesh extension
+  - title: Understand the Aesh extension
     url: /guides/aesh-concept
     type: concept
     matches: 3
@@ -24916,7 +24916,7 @@
     matches: 2
 /guides/aesh-howto:
   sameTopics:
-  - title: Getting started with Aesh
+  - title: Build your first CLI application with Aesh
     url: /guides/aesh-tutorial
     type: tutorial
     matches: 3
@@ -24924,7 +24924,7 @@
     url: /guides/aesh-reference
     type: reference
     matches: 6
-  - title: About the Aesh extension
+  - title: Understand the Aesh extension
     url: /guides/aesh-concept
     type: concept
     matches: 6
@@ -24934,15 +24934,15 @@
     matches: 2
 /guides/aesh-reference:
   sameTopics:
-  - title: Getting started with Aesh
+  - title: Build your first CLI application with Aesh
     url: /guides/aesh-tutorial
     type: tutorial
     matches: 3
-  - title: Command Mode with Aesh
+  - title: Build CLI applications with Aesh
     url: /guides/aesh-howto
     type: howto
     matches: 6
-  - title: About the Aesh extension
+  - title: Understand the Aesh extension
     url: /guides/aesh-concept
     type: concept
     matches: 6
@@ -24952,11 +24952,11 @@
     matches: 2
 /guides/aesh-concept:
   sameTopics:
-  - title: Getting started with Aesh
+  - title: Build your first CLI application with Aesh
     url: /guides/aesh-tutorial
     type: tutorial
     matches: 3
-  - title: Command Mode with Aesh
+  - title: Build CLI applications with Aesh
     url: /guides/aesh-howto
     type: howto
     matches: 6

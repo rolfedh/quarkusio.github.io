@@ -668,7 +668,7 @@ types:
     id: security-vulnerability-detection
     type: concept
     url: /guides/security-vulnerability-detection
-  - title: About the Aesh extension
+  - title: Understand the Aesh extension
     filename: aesh-concept.adoc
     summary: Understand the architecture and design decisions behind the Quarkus Aesh extension.
     categories: command-line
@@ -890,7 +890,7 @@ types:
     id: config-yaml
     type: howto
     url: /guides/config-yaml
-  - title: Command Mode with Aesh
+  - title: Build CLI applications with Aesh
     filename: aesh-howto.adoc
     summary: Develop command line applications with the Aesh extension.
     categories: command-line
@@ -909,7 +909,7 @@ types:
     type: howto
     url: /guides/aesh-howto
   tutorial:
-  - title: Getting started with Aesh
+  - title: Build your first CLI application with Aesh
     filename: aesh-tutorial.adoc
     summary: Build an interactive CLI application with multiple commands, tab completion, and shared state using the Quarkus Aesh extension.
     categories: command-line

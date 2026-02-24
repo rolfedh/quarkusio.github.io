@@ -3,7 +3,7 @@ This guide is maintained in the main Quarkus repository
 and pull requests should be submitted there:
 https://github.com/quarkusio/quarkus/tree/main/docs/src/main/asciidoc
 ////
-= About the Aesh extension
+= Understand the Aesh extension
 include::_attributes.adoc[]
 :categories: command-line
 :diataxis-type: concept
@@ -12,8 +12,8 @@ include::_attributes.adoc[]
 :extensions: io.quarkus:quarkus-aesh,io.quarkus:quarkus-aesh-websocket,io.quarkus:quarkus-aesh-ssh
 
 This document explains the key concepts and design decisions behind the Quarkus Aesh extension.
-For a guided introduction, see the xref:aesh-tutorial.adoc[Getting started with Aesh] tutorial.
-For step-by-step instructions, see the xref:aesh-howto.adoc[Aesh how-to guide].
+For a guided introduction, see the xref:aesh-tutorial.adoc[Build your first CLI application with Aesh] tutorial.
+For step-by-step instructions, see the xref:aesh-howto.adoc[Build CLI applications with Aesh].
 For configuration properties and API details, see the xref:aesh-reference.adoc[Aesh extension reference].
 
 == What is Aesh?

@@ -3,7 +3,7 @@ This guide is maintained in the main Quarkus repository
 and pull requests should be submitted there:
 https://github.com/quarkusio/quarkus/tree/main/docs/src/main/asciidoc
 ////
-= Getting started with Aesh
+= Build your first CLI application with Aesh
 include::_attributes.adoc[]
 :categories: command-line
 :diataxis-type: tutorial
@@ -302,6 +302,6 @@ Along the way, you experienced:
 
 == Next steps
 
-* xref:aesh-howto.adoc[Aesh how-to guide] -- group commands with subcommands, add custom completers and validators, set up remote terminals via WebSocket and SSH, and more
-* xref:aesh-concept.adoc[About the Aesh extension] -- understand execution modes, CDI scope rules, and the remote access architecture
+* xref:aesh-howto.adoc[Build CLI applications with Aesh] -- group commands with subcommands, add custom completers and validators, set up remote terminals via WebSocket and SSH, and more
+* xref:aesh-concept.adoc[Understand the Aesh extension] -- understand execution modes, CDI scope rules, and the remote access architecture
 * xref:aesh-reference.adoc[Aesh extension reference] -- configuration properties, build-time validation rules, and API reference

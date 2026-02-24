@@ -3,7 +3,7 @@ This guide is maintained in the main Quarkus repository
 and pull requests should be submitted there:
 https://github.com/quarkusio/quarkus/tree/main/docs/src/main/asciidoc
 ////
-= Command Mode with Aesh
+= Build CLI applications with Aesh
 include::_attributes.adoc[]
 :categories: command-line
 :diataxis-type: howto
@@ -12,8 +12,8 @@ include::_attributes.adoc[]
 :extensions: io.quarkus:quarkus-aesh,io.quarkus:quarkus-aesh-websocket,io.quarkus:quarkus-aesh-ssh
 
 This guide shows how to build interactive and single-command CLI applications using the Aesh extension.
-For a guided introduction, see the xref:aesh-tutorial.adoc[Getting started with Aesh] tutorial.
-For background on execution modes and architecture, see xref:aesh-concept.adoc[About the Aesh extension].
+For a guided introduction, see the xref:aesh-tutorial.adoc[Build your first CLI application with Aesh] tutorial.
+For background on execution modes and architecture, see xref:aesh-concept.adoc[Understand the Aesh extension].
 For configuration properties and API details, see the xref:aesh-reference.adoc[Aesh extension reference].
 
 IMPORTANT: If you are not familiar with the Quarkus Command Mode, consider reading the xref:command-mode-reference.adoc[Command Mode reference guide] first.

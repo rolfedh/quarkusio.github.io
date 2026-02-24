@@ -388,31 +388,31 @@ domains:
   guides:
   - url: /guides/security-overview
     title: Quarkus Security overview
-    type: concepts
+    type: concept
     nav-title: Understand Quarkus security
   - url: /guides/security-architecture
     title: Quarkus Security architecture
-    type: concepts
+    type: concept
     nav-title: Understand security architecture
   - url: /guides/security-authentication-mechanisms
     title: Authentication mechanisms in Quarkus
-    type: concepts
+    type: concept
     nav-title: Understand authentication mechanisms
   - url: /guides/security-identity-providers
     title: Identity providers
-    type: concepts
+    type: concept
     nav-title: Understand identity providers
   - url: /guides/security-basic-authentication
     title: Basic authentication
-    type: concepts
+    type: concept
     nav-title: Understand basic authentication
   - url: /guides/security-proactive-authentication
     title: Proactive authentication
-    type: concepts
+    type: concept
     nav-title: Understand proactive authentication
   - url: /guides/security-vulnerability-detection
     title: Security vulnerability detection and reporting in Quarkus
-    type: concepts
+    type: concept
     nav-title: Understand vulnerability detection
   - subcategory: Tutorials
     guides:
@@ -444,19 +444,19 @@ domains:
     guides:
     - url: /guides/security-oidc-bearer-token-authentication
       title: OpenID Connect (OIDC) Bearer token authentication
-      type: concepts
+      type: concept
       nav-title: Understand OIDC bearer authentication
     - url: /guides/security-oidc-code-flow-authentication
       title: OpenID Connect authorization code flow mechanism for protecting web applications
-      type: concepts
+      type: concept
       nav-title: Understand OIDC code flow
     - url: /guides/security-openid-connect-providers
       title: Configuring Well-Known OpenID Connect Providers
-      type: concepts
+      type: concept
       nav-title: Understand OIDC providers
     - url: /guides/security-oidc-expanded-configuration
       title: Quarkus OpenId Connect (OIDC) Expanded Configuration Reference
-      type: concepts
+      type: concept
       nav-title: OIDC expanded configuration
     - url: /guides/security-keycloak-authorization
       title: Using OpenID Connect (OIDC) and Keycloak to centralize authorization
@@ -908,7 +908,7 @@ domains:
     nav-title: Propagate context
   - url: /guides/duplicated-context
     title: Duplicated context, context locals, asynchronous processing and propagation
-    type: concepts
+    type: concept
     nav-title: Understand duplicated context
   - url: /guides/virtual-threads
     title: Virtual Thread support reference
@@ -1008,6 +1008,24 @@ domains:
     title: Command Mode with Picocli
     type: guide
     nav-title: Use Picocli for command mode
+  - subcategory: Build interactive CLI applications with Aesh
+    guides:
+    - url: /guides/aesh-tutorial
+      title: Getting started with Aesh
+      type: tutorial
+      nav-title: Get started with Aesh
+    - url: /guides/aesh-howto
+      title: Command Mode with Aesh
+      type: howto
+      nav-title: Build CLI apps with Aesh
+    - url: /guides/aesh-concept
+      title: About the Aesh extension
+      type: concept
+      nav-title: About Aesh
+    - url: /guides/aesh-reference
+      title: Aesh extension reference
+      type: reference
+      nav-title: Aesh reference
   - url: /guides/scripting
     title: Scripting with Quarkus
     type: guide
@@ -1125,7 +1143,7 @@ domains:
     nav-title: Build your first extension
   - url: /guides/extension-maturity-matrix
     title: A maturity matrix for Quarkus extensions
-    type: concepts
+    type: concept
     nav-title: Understand extension maturity
   - url: /guides/extension-faq
     title: Frequently asked questions about writing extensions
@@ -1183,7 +1201,7 @@ domains:
   guides:
   - url: /guides/doc-concept
     title: Quarkus documentation content types
-    type: concepts
+    type: concept
     nav-title: Understand content types
   - url: /guides/doc-reference
     title: Quarkus style and content guidelines

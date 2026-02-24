@@ -2,6 +2,24 @@
 ---
 types:
   reference:
+  - title: Aesh extension reference
+    filename: aesh-reference.adoc
+    summary: Configuration properties, validation rules, and API reference for the Quarkus Aesh extension.
+    categories: command-line
+    topics:
+    - command-line
+    - cli
+    - aesh
+    - ssh
+    - websocket
+    - terminal
+    extensions:
+    - io.quarkus:quarkus-aesh
+    - io.quarkus:quarkus-aesh-websocket
+    - io.quarkus:quarkus-aesh-ssh
+    id: aesh-reference
+    type: reference
+    url: /guides/aesh-reference
   - title: Authorization of web endpoints
     filename: security-authorize-web-endpoints-reference.adoc
     summary: Quarkus incorporates a pluggable web security layer.
@@ -477,7 +495,7 @@ types:
     - io.quarkus:quarkus-grpc
     type: reference
     url: /guides/grpc-reference
-  concepts:
+  concept:
   - title: A maturity matrix for Quarkus extensions
     filename: extension-maturity-matrix.adoc
     summary: "Quarkus extensions can do a lot, or a little."
@@ -485,7 +503,7 @@ types:
     topics:
     - extensions
     id: extension-maturity-matrix
-    type: concepts
+    type: concept
     url: /guides/extension-maturity-matrix
   - title: Authentication mechanisms in Quarkus
     filename: security-authentication-mechanisms.adoc
@@ -495,7 +513,7 @@ types:
     - security
     - authentication
     id: security-authentication-mechanisms
-    type: concepts
+    type: concept
     url: /guides/security-authentication-mechanisms
   - title: Basic authentication
     filename: security-basic-authentication.adoc
@@ -512,7 +530,7 @@ types:
     - io.quarkus:quarkus-elytron-security-ldap
     - io.quarkus:quarkus-security-jpa-reactive
     id: security-basic-authentication
-    type: concepts
+    type: concept
     url: /guides/security-basic-authentication
   - title: Configuring Well-Known OpenID Connect Providers
     filename: security-openid-connect-providers.adoc
@@ -536,7 +554,7 @@ types:
     extensions:
     - io.quarkus:quarkus-oidc
     id: security-openid-connect-providers
-    type: concepts
+    type: concept
     url: /guides/security-openid-connect-providers
   - title: "Duplicated context, context locals, asynchronous processing and propagation"
     filename: duplicated-context.adoc
@@ -546,7 +564,7 @@ types:
     - internals
     - extensions
     id: duplicated-context
-    type: concepts
+    type: concept
     url: /guides/duplicated-context
   - title: Identity providers
     filename: security-identity-providers.adoc
@@ -560,7 +578,7 @@ types:
     - io.quarkus:quarkus-elytron-security-ldap
     - io.quarkus:quarkus-security-jpa-reactive
     id: security-identity-providers
-    type: concepts
+    type: concept
     url: /guides/security-identity-providers
   - title: OpenID Connect (OIDC) Bearer token authentication
     filename: security-oidc-bearer-token-authentication.adoc
@@ -575,7 +593,7 @@ types:
     extensions:
     - io.quarkus:quarkus-oidc
     id: security-oidc-bearer-token-authentication
-    type: concepts
+    type: concept
     url: /guides/security-oidc-bearer-token-authentication
   - title: OpenID Connect authorization code flow mechanism for protecting web applications
     filename: security-oidc-code-flow-authentication.adoc
@@ -589,7 +607,7 @@ types:
     extensions:
     - io.quarkus:quarkus-oidc
     id: security-oidc-code-flow-authentication
-    type: concepts
+    type: concept
     url: /guides/security-oidc-code-flow-authentication
   - title: Proactive authentication
     filename: security-proactive-authentication.adoc
@@ -601,7 +619,7 @@ types:
     extensions:
     - io.quarkus:quarkus-vertx-http
     id: security-proactive-authentication
-    type: concepts
+    type: concept
     url: /guides/security-proactive-authentication
   - title: Quarkus OpenId Connect (OIDC) Expanded Configuration Reference
     filename: security-oidc-expanded-configuration.adoc
@@ -610,7 +628,7 @@ types:
     topics:
     - security
     id: security-oidc-expanded-configuration
-    type: concepts
+    type: concept
     url: /guides/security-oidc-expanded-configuration
   - title: Quarkus Security architecture
     filename: security-architecture.adoc
@@ -619,7 +637,7 @@ types:
     topics:
     - security
     id: security-architecture
-    type: concepts
+    type: concept
     url: /guides/security-architecture
   - title: Quarkus Security overview
     filename: security-overview.adoc
@@ -628,7 +646,7 @@ types:
     topics:
     - security
     id: security-overview
-    type: concepts
+    type: concept
     url: /guides/security-overview
   - title: Quarkus documentation content types
     filename: doc-concept.adoc
@@ -638,7 +656,7 @@ types:
     - internals
     - documentation
     id: doc-concept
-    type: concepts
+    type: concept
     url: /guides/doc-concept
   - title: Security vulnerability detection and reporting in Quarkus
     filename: security-vulnerability-detection.adoc
@@ -648,8 +666,26 @@ types:
     - security
     - vulnerability
     id: security-vulnerability-detection
-    type: concepts
+    type: concept
     url: /guides/security-vulnerability-detection
+  - title: About the Aesh extension
+    filename: aesh-concept.adoc
+    summary: Understand the architecture and design decisions behind the Quarkus Aesh extension.
+    categories: command-line
+    topics:
+    - command-line
+    - cli
+    - aesh
+    - ssh
+    - websocket
+    - terminal
+    extensions:
+    - io.quarkus:quarkus-aesh
+    - io.quarkus:quarkus-aesh-websocket
+    - io.quarkus:quarkus-aesh-ssh
+    id: aesh-concept
+    type: concept
+    url: /guides/aesh-concept
   howto:
   - title: Contribute to Quarkus documentation
     filename: doc-contribute-docs-howto.adoc
@@ -854,7 +890,38 @@ types:
     id: config-yaml
     type: howto
     url: /guides/config-yaml
+  - title: Command Mode with Aesh
+    filename: aesh-howto.adoc
+    summary: Develop command line applications with the Aesh extension.
+    categories: command-line
+    topics:
+    - command-line
+    - cli
+    - aesh
+    - ssh
+    - websocket
+    - terminal
+    extensions:
+    - io.quarkus:quarkus-aesh
+    - io.quarkus:quarkus-aesh-websocket
+    - io.quarkus:quarkus-aesh-ssh
+    id: aesh-howto
+    type: howto
+    url: /guides/aesh-howto
   tutorial:
+  - title: Getting started with Aesh
+    filename: aesh-tutorial.adoc
+    summary: Build an interactive CLI application with multiple commands, tab completion, and shared state using the Quarkus Aesh extension.
+    categories: command-line
+    topics:
+    - command-line
+    - cli
+    - aesh
+    extensions:
+    - io.quarkus:quarkus-aesh
+    id: aesh-tutorial
+    type: tutorial
+    url: /guides/aesh-tutorial
   - title: Building a Native Executable
     filename: building-native-image.adoc
     summary: Build native executables with GraalVM or Mandrel.

@@ -85,7 +85,7 @@
         </div>
       </div>
       {% endif %}
-      {% include index-docs-merge.html type="concepts" %}
+      {% include index-docs-merge.html type="concept" %}
       {% if values %}
       <div class="grid__item width-12-12 docslist">
         <div class="doclist-header">
@@ -94,7 +94,7 @@
         </div>
         <div class="grid-wrapper">
           {% for guide in values %}
-          {% include index-doc-item.html type="concepts" docversion=docversion
+          {% include index-doc-item.html type="concept" docversion=docversion
           title=guide.title url=guide.url summary=guide.summary status=guide.status
           keywords=guide.keywords categories=guide.categories origin=guide.origin %}
           {% endfor %}

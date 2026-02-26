@@ -71,20 +71,20 @@ layout: base
       <div class="toc">{{ page.document | tocify_asciidoc }}</div>
     </div>
   </div>
-  {% comment %} Prev/next navigation within the current domain — reads titles from domains.yaml directly {% endcomment %}
+  {% comment %} Prev/next navigation within the current domain — reads titles from navigation.yaml directly {% endcomment %}
   {% assign current_domain_id = "" %}
-  {% for domain in site.data.domains.domains %}
+  {% for domain in site.data.navigation.navigation %}
     {% for entry in domain.guides %}
       {% if page.url == entry.url %}
-        {% assign current_domain_id = domain.id %}
+        {% assign current_domain_id = domain.category %}
       {% endif %}
     {% endfor %}
   {% endfor %}
   {% assign prev_guide = nil %}
   {% assign next_guide = nil %}
   {% assign found_current = false %}
-  {% for domain in site.data.domains.domains %}
-    {% if domain.id == current_domain_id %}
+  {% for domain in site.data.navigation.navigation %}
+    {% if domain.category == current_domain_id %}
       {% for entry in domain.guides %}
         {% if found_current and next_guide == nil %}
           {% assign next_guide = entry %}

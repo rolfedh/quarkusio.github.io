@@ -33,18 +33,26 @@
 
   <div><h1 class="title">{{ page.title }}</h1></div>
 
-  {% comment %} Most popular — featured guides + config link above the domain list {% endcomment %}
+  {% comment %} Most popular — featured guides + config link above the domain list.
+     Guides in multiple categories are deduplicated by URL. {% endcomment %}
   {% assign featured_guides = "" | split: "" %}
-  {% for domain in site.data.domains.domains %}
+  {% assign featured_urls = "" | split: "" %}
+  {% for domain in site.data.navigation.navigation %}
     {% for entry in domain.guides %}
       {% if entry.subcategory %}
         {% for subentry in entry.guides %}
           {% if subentry.featured %}
-            {% assign featured_guides = featured_guides | push: subentry %}
+            {% unless featured_urls contains subentry.url %}
+              {% assign featured_guides = featured_guides | push: subentry %}
+              {% assign featured_urls = featured_urls | push: subentry.url %}
+            {% endunless %}
           {% endif %}
         {% endfor %}
       {% elsif entry.featured %}
-        {% assign featured_guides = featured_guides | push: entry %}
+        {% unless featured_urls contains entry.url %}
+          {% assign featured_guides = featured_guides | push: entry %}
+          {% assign featured_urls = featured_urls | push: entry.url %}
+        {% endunless %}
       {% endif %}
     {% endfor %}
   {% endfor %}
@@ -57,11 +65,11 @@
       <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ guide.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ guide.url }}{% endif %}" class="start-here__card">
         <h3>{{ guide.nav-title | default: guide.title }}</h3>
         <p>{{ guide.featured-summary }}</p>
-        <span class="type-badge" title="{% if guide.type == 'tutorial' %}Tutorial{% elsif guide.type == 'howto' %}How-to{% elsif guide.type == 'reference' %}Reference{% elsif guide.type == 'concept' %}Concept{% else %}General guide{% endif %}">
-          {% if guide.type == 'tutorial' %}Tutorial
-          {% elsif guide.type == 'howto' %}How-to
-          {% elsif guide.type == 'reference' %}Reference
-          {% elsif guide.type == 'concept' %}Concept
+        <span class="type-badge" title="{% if guide.diataxis-type == 'tutorial' %}Tutorial{% elsif guide.diataxis-type == 'howto' %}How-to{% elsif guide.diataxis-type == 'reference' %}Reference{% elsif guide.diataxis-type == 'concept' %}Concept{% else %}General guide{% endif %}">
+          {% if guide.diataxis-type == 'tutorial' %}Tutorial
+          {% elsif guide.diataxis-type == 'howto' %}How-to
+          {% elsif guide.diataxis-type == 'reference' %}Reference
+          {% elsif guide.diataxis-type == 'concept' %}Concept
           {% else %}General guide
           {% endif %}
         </span>
@@ -82,25 +90,25 @@
       <div class="grid__item width-3-12 hide-mobile guide-sidebar-wrapper">
         {% comment %} Sidebar with ALL domains expanded on landing page {% endcomment %}
         <nav class="guide-sidebar guide-sidebar--landing" aria-label="Guide navigation">
-          {% for domain in site.data.domains.domains %}
+          {% for domain in site.data.navigation.navigation %}
           {% if domain.guides.size > 0 %}
           <details open>
-            <summary>{{ domain.title }}</summary>
+            <summary>{{ domain.cat-title }}</summary>
             <ul>
               {% for entry in domain.guides %}
               {% if entry.subcategory %}
               <li class="subcategory-group">
                 <details open>
-                  <summary>{{ entry.subcategory }}</summary>
+                  <summary>{{ entry.subcat-title }}</summary>
                   <ul>
                     {% for subentry in entry.guides %}
-                    <li><a href="#{{ domain.id }}-{{ entry.subcategory | slugify }}">{{ subentry.nav-title | default: subentry.title }}</a></li>
+                    <li><a href="#{{ domain.category }}-{{ entry.subcategory }}">{{ subentry.nav-title | default: subentry.title }}</a></li>
                     {% endfor %}
                   </ul>
                 </details>
               </li>
               {% else %}
-              <li><a href="#{{ domain.id }}">{{ entry.nav-title | default: entry.title }}</a></li>
+              <li><a href="#{{ domain.category }}">{{ entry.nav-title | default: entry.title }}</a></li>
               {% endif %}
               {% endfor %}
             </ul>
@@ -111,24 +119,24 @@
       </div>
 
       <div class="grid__item width-9-12 width-12-12-m">
-        {% for domain in site.data.domains.domains %}
+        {% for domain in site.data.navigation.navigation %}
         {% if domain.guides.size > 0 %}
-        <section id="{{ domain.id }}" class="domain-section">
-          <h2>{{ domain.title }}</h2>
-          <p class="domain-job">{{ domain.job }}</p>
+        <section id="{{ domain.category }}" class="domain-section">
+          <h2>{{ domain.cat-title }}</h2>
+          <p class="domain-job">{{ domain.use-case }}</p>
           <ul class="domain-guides">
           {% for entry in domain.guides %}
             {% if entry.subcategory %}
-            <li class="subcategory-block" id="{{ domain.id }}-{{ entry.subcategory | slugify }}">
-              <span class="subcategory-heading">{{ entry.subcategory }}</span>
+            <li class="subcategory-block" id="{{ domain.category }}-{{ entry.subcategory }}">
+              <span class="subcategory-heading">{{ entry.subcat-title }}</span>
               <ul>
               {% for subentry in entry.guides %}
                 <li>
                   <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ subentry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ subentry.url }}{% endif %}">{{ subentry.title }}</a>
-                  {% if subentry.type == 'tutorial' %}<span class="type-badge" title="Tutorial">[T]</span>
-                  {% elsif subentry.type == 'howto' %}<span class="type-badge" title="How-to">[H]</span>
-                  {% elsif subentry.type == 'reference' %}<span class="type-badge" title="Reference">[R]</span>
-                  {% elsif subentry.type == 'concept' %}<span class="type-badge" title="Concept">[C]</span>
+                  {% if subentry.diataxis-type == 'tutorial' %}<span class="type-badge" title="Tutorial">[T]</span>
+                  {% elsif subentry.diataxis-type == 'howto' %}<span class="type-badge" title="How-to">[H]</span>
+                  {% elsif subentry.diataxis-type == 'reference' %}<span class="type-badge" title="Reference">[R]</span>
+                  {% elsif subentry.diataxis-type == 'concept' %}<span class="type-badge" title="Concept">[C]</span>
                   {% else %}<span class="type-badge" title="General guide">[G]</span>
                   {% endif %}
                 </li>
@@ -138,10 +146,10 @@
             {% else %}
             <li>
               <a href="{% if docversion == 'latest' %}{{ site.baseurl }}{{ entry.url }}{% else %}{{ site.baseurl }}/version/{{ docversion }}{{ entry.url }}{% endif %}">{{ entry.title }}</a>
-              {% if entry.type == 'tutorial' %}<span class="type-badge" title="Tutorial">[T]</span>
-              {% elsif entry.type == 'howto' %}<span class="type-badge" title="How-to">[H]</span>
-              {% elsif entry.type == 'reference' %}<span class="type-badge" title="Reference">[R]</span>
-              {% elsif entry.type == 'concept' %}<span class="type-badge" title="Concept">[C]</span>
+              {% if entry.diataxis-type == 'tutorial' %}<span class="type-badge" title="Tutorial">[T]</span>
+              {% elsif entry.diataxis-type == 'howto' %}<span class="type-badge" title="How-to">[H]</span>
+              {% elsif entry.diataxis-type == 'reference' %}<span class="type-badge" title="Reference">[R]</span>
+              {% elsif entry.diataxis-type == 'concept' %}<span class="type-badge" title="Concept">[C]</span>
               {% else %}<span class="type-badge" title="General guide">[G]</span>
               {% endif %}
             </li>

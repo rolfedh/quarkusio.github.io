@@ -3,8 +3,7 @@
 {% assign docversion_index = docversion | replace: '.', '-' %}
 {% assign cat_data = site.data.versioned[docversion_index].index.categories.categories %}
 
-{% unless cat_data %}{% break %}{% endunless %}
-
+{% if cat_data %}
 {% assign guide_cat_labels = "" | split: "," %}
 {% assign guide_cat_ids = "" | split: "," %}
 {% assign guide_topics = nil %}
@@ -151,4 +150,5 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+{% endif %}
 {% endif %}

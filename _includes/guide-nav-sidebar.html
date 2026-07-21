@@ -3,8 +3,7 @@
 {% assign docversion_index = docversion | replace: '.', '-' %}
 {% assign cat_data = site.data.versioned[docversion_index].index.categories.categories %}
 
-{% unless cat_data %}{% break %}{% endunless %}
-
+{% if cat_data %}
 <nav class="guide-nav-sidebar">
   {% for cat in cat_data %}
     {% assign cat_has_current = false %}
@@ -77,3 +76,4 @@
     </details>
   {% endfor %}
 </nav>
+{% endif %}
